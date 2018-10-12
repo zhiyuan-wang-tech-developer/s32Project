@@ -132,19 +132,5 @@
       <EmptySection_DummyValue />
     </Events>
   </Bean>
-  <Bean name="flexTimer_mc1" type="ftm_mc">
-    <Enabled v="Y" />
-    <Properties>
-      <Component_name v="flexTimer_mc1" />
-      <Device v="FTM0" />
-      <Component_version v="S32K144_SDK01" />
-    </Properties>
-    <Methods>
-      <EmptySection_DummyValue />
-    </Methods>
-    <Events>
-      <EmptySection_DummyValue />
-    </Events>
-  </Bean>
 </PE_PROJECT_SETTINGS_DOCUMENTATION>
 

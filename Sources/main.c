@@ -26,38 +26,64 @@
 /* Including necessary module. Cpu.h contains other modules needed for compiling.*/
 #include "Cpu.h"
 #include "stdio.h"
+#include "string.h"
 
 volatile int exit_code = 0;
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
 
-uint64_t countTxSample = 0;
-uint64_t countTxSamplePerSec = 0;
+uint32_t countTxSample = 0;
+uint32_t countTxSamplePerSec = 0;
+
+const uint8_t uartTxBuffer[9] = "allround\n";
+//uint8_t uartTxBuffer[9] = {0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55};
+//uint8_t uartTxBuffer[9] = {'\0'};
 
 void TogglePTD5 (void)
 {
-	countTxSamplePerSec = countTxSample;
-	countTxSample = 0;
-//	printf("%d\n", countTxSamplePerSec);
-	PINS_DRV_TogglePins(PTD, 1<<5);
-	PINS_DRV_TogglePins(PTE, 1<<8);
-
 	if( LPIT_DRV_GetInterruptFlagTimerChannels(INST_LPIT1, 0x01u) )
 	{
 		LPIT_DRV_ClearInterruptFlagTimerChannels(INST_LPIT1, 0x01u);
 	}
+	countTxSamplePerSec = countTxSample;
+	countTxSample = 0;
+//	printf("Tx Sample Rate: %lu\n", countTxSamplePerSec);
+
+//	PINS_DRV_TogglePins(PTE, 1<<8);
+
+//	LPUART_DRV_SendDataPolling(INST_LPUART1, uartTxBuffer, sizeof(uartTxBuffer));
+
+//	PINS_DRV_TogglePins(PTD, 1<<5);
 }
 
 //void LPTMR0_IRQHandler(void)
 void TogglePTD6 (void)
 {
-	countTxSample++;
 	if( LPTMR_DRV_GetCompareFlag(INST_LPTMR1) )
 	{
 		// MUST clear compare flag, otherwise program will get stuck in the lptmr0 ISR.
 		LPTMR_DRV_ClearCompareFlag(INST_LPTMR1);
 	}
-	PINS_DRV_TogglePins(PTD, 1<<6);
+	countTxSample++;
+//	PINS_DRV_TogglePins(PTD, 1<<6);
+	LPUART_DRV_SendDataPolling(INST_LPUART1, uartTxBuffer, sizeof(uartTxBuffer));
+}
+
+// available tx sample rate range = 1222 ~ 1280
+bool setTxSampleRate(uint16_t rate)
+{
+	if( (rate < 1222) || (rate > 1280) )
+	{
+		return false;
+	}
+	float tickUnit = 0.0125; // us
+	float samplePeriod = (1000000.0 / (float) rate); // us
+	uint16_t cmpValue = (uint16_t) (samplePeriod / tickUnit); // calculate low power timer compare value
+	if( LPTMR_DRV_SetCompareValueByCount(INST_LPTMR1, cmpValue) == STATUS_SUCCESS )
+	{
+		return true;
+	}
+	return false;
 }
 
 /*!
@@ -106,6 +132,8 @@ int main(void)
 
     PINS_DRV_ClearPins(PTD, 1<<6);
 
+    setTxSampleRate(1234); // Adjustable Tx sample rate: 1222 - 1280
+
     if( !LPTMR_DRV_IsRunning(INST_LPTMR1) )
     {
     	LPTMR_DRV_StartCounter(INST_LPTMR1);
@@ -114,7 +142,7 @@ int main(void)
     uint32_t lpTimerFreq = 0;
     if( CLOCK_DRV_GetFreq(LPTMR0_CLK, &lpTimerFreq) == STATUS_SUCCESS )
     {
-    	printf("Timer Frequency: %d\r\n", (int)lpTimerFreq);
+//    	printf("Low Power Timer Frequency: %lu\r\n", lpTimerFreq);
     }
 
     LPIT_DRV_Init(INST_LPIT1, &lpit1_InitConfig);
@@ -129,6 +157,11 @@ int main(void)
     }
 
     LPIT_DRV_StartTimerChannels(INST_LPIT1, 0x01U);
+
+   if( LPUART_DRV_Init(INST_LPUART1, &lpuart1_State, &lpuart1_InitConfig0) != STATUS_SUCCESS )
+   {
+	   printf("Error\n");
+   }
 
   /* For example: for(;;) { } */
 

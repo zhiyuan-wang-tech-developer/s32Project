@@ -7,7 +7,7 @@
 **     Version     : Component 01.197, Driver 01.00, CPU db: 3.00.000
 **     Datasheet   : S32K14XRM Rev. 2, 02/2017
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-10-11, 13:10, # CodeGen: 23
+**     Date/Time   : 2018-10-11, 16:46, # CodeGen: 37
 **     Abstract    :
 **
 **     Settings    :
@@ -61,6 +61,8 @@
 #include "interrupt_manager.h"
 #include "lptmr_driver.h"
 #include "lpit_driver.h"
+#include "edma_driver.h"
+#include "lpuart_driver.h"
 #include "system_S32K144.h"
 
 /* Including needed modules to compile this module/procedure */
@@ -68,6 +70,8 @@
 #include "pin_mux.h"
 #include "lpTmr1.h"
 #include "lpit1.h"
+#include "lpuart1.h"
+#include "dmaController1.h"
 
 #ifdef __cplusplus
 extern "C" {
