@@ -45,8 +45,8 @@ void TogglePTD5 (void)
 	{
 		LPIT_DRV_ClearInterruptFlagTimerChannels(INST_LPIT1, 0x01u);
 	}
-	countTxSamplePerSec = countTxSample;
-	countTxSample = 0;
+//	countTxSamplePerSec = countTxSample;
+//	countTxSample = 0;
 //	printf("Tx Sample Rate: %lu\n", countTxSamplePerSec);
 
 //	PINS_DRV_TogglePins(PTE, 1<<8);
@@ -64,8 +64,8 @@ void TogglePTD6 (void)
 		// MUST clear compare flag, otherwise program will get stuck in the lptmr0 ISR.
 		LPTMR_DRV_ClearCompareFlag(INST_LPTMR1);
 	}
-	countTxSample++;
-//	PINS_DRV_TogglePins(PTD, 1<<6);
+//	countTxSample++;
+	PINS_DRV_TogglePins(PTD, 1<<6);
 	LPUART_DRV_SendDataPolling(INST_LPUART1, uartTxBuffer, sizeof(uartTxBuffer));
 }
 
@@ -132,7 +132,7 @@ int main(void)
 
     PINS_DRV_ClearPins(PTD, 1<<6);
 
-    setTxSampleRate(1234); // Adjustable Tx sample rate: 1222 - 1280
+    setTxSampleRate(1260); // Adjustable Tx sample rate: 1222 - 1280
 
     if( !LPTMR_DRV_IsRunning(INST_LPTMR1) )
     {
