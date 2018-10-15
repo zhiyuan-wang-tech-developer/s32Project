@@ -7,7 +7,7 @@
 **     Version     : Component 1.2.0, Driver 1.4, CPU db: 3.00.000
 **     Repository  : SDK_S32K14x_09
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-10-11, 16:24, # CodeGen: 31
+**     Date/Time   : 2018-10-15, 15:53, # CodeGen: 43
 **     Abstract    :
 **
 **     Settings    :
@@ -200,10 +200,10 @@
 **              Peripheral Type GPIO                       : 
 **                Custom name                              : PTA
 **                PTA                                      : 
-**                  Pin 0                                  : <Automatic>
-**                  Direction                              : <Automatic>
-**                  Pin 1                                  : <Automatic>
-**                  Direction                              : <Automatic>
+**                  Pin 0                                  : PTA0
+**                  Direction                              : Output
+**                  Pin 1                                  : PTA1
+**                  Direction                              : Input
 **                  Pin 2                                  : <Automatic>
 **                  Direction                              : <Automatic>
 **                  Pin 3                                  : <Automatic>
@@ -250,7 +250,7 @@
 **                PTC                                      : 
 **                  Pin 0                                  : <Automatic>
 **                  Direction                              : <Automatic>
-**                  Pin 1                                  : PTC1
+**                  Pin 1                                  : <Automatic>
 **                  Direction                              : <Automatic>
 **                  Pin 2                                  : <Automatic>
 **                  Direction                              : <Automatic>
@@ -314,8 +314,8 @@
 **                  Direction                              : <Automatic>
 **                  Pin 6                                  : <Automatic>
 **                  Direction                              : <Automatic>
-**                  Pin 7                                  : <Automatic>
-**                  Direction                              : <Automatic>
+**                  Pin 7                                  : PTE7
+**                  Direction                              : Output
 **                  Pin 8                                  : PTE8
 **                  Direction                              : Output
 **                  Pin 9                                  : <Automatic>
@@ -345,18 +345,18 @@
 **              Peripheral Type LPSPI                      : 
 **                Custom name                              : LPSPI0
 **                LPSPI0                                   : 
-**                  Peripheral Chip Select 0               : <Automatic>
-**                  Direction                              : <Automatic>
+**                  Peripheral Chip Select 0               : PTB0
+**                  Direction                              : Output
 **                  Peripheral Chip Select 1               : <Automatic>
 **                  Direction                              : <Automatic>
 **                  Peripheral Chip Select 2               : <Automatic>
 **                  Direction                              : <Automatic>
-**                  Serial Clock                           : <Automatic>
-**                  Direction                              : <Automatic>
-**                  Serial Data Input                      : <Automatic>
-**                  Direction                              : <Automatic>
-**                  Serial Data Output                     : <Automatic>
-**                  Direction                              : <Automatic>
+**                  Serial Clock                           : PTB2
+**                  Direction                              : Output
+**                  Serial Data Input                      : PTB3
+**                  Direction                              : Input
+**                  Serial Data Output                     : PTB1
+**                  Direction                              : Output
 **                Custom name                              : LPSPI1
 **                LPSPI1                                   : 
 **                  Peripheral Chip Select 0               : <Automatic>
@@ -371,16 +371,16 @@
 **                  Direction                              : <Automatic>
 **                Custom name                              : LPSPI2
 **                LPSPI2                                   : 
-**                  Peripheral Chip Select 0               : <Automatic>
-**                  Direction                              : <Automatic>
+**                  Peripheral Chip Select 0               : PTC14
+**                  Direction                              : Output
 **                  Peripheral Chip Select 1               : <Automatic>
 **                  Direction                              : <Automatic>
-**                  Serial Clock                           : <Automatic>
-**                  Direction                              : <Automatic>
-**                  Serial Data Input                      : <Automatic>
-**                  Direction                              : <Automatic>
-**                  Serial Data Output                     : <Automatic>
-**                  Direction                              : <Automatic>
+**                  Serial Clock                           : PTC15
+**                  Direction                              : Output
+**                  Serial Data Input                      : PTC0
+**                  Direction                              : Input
+**                  Serial Data Output                     : PTC1
+**                  Direction                              : Output
 **              Peripheral Type LPTMR                      : 
 **                Custom name                              : LPTMR0
 **                LPTMR0                                   : 
@@ -431,7 +431,7 @@
 **              Peripheral Type Platform                   : 
 **                Platform                                 : 
 **                  Clock Output                           : <Automatic>
-**                  Clock Output                           : <Automatic>
+**                  Clock Output                           : PTB5
 **                  Non-Maskable Interrupt                 : <Automatic>
 **                  Reset                                  : <Automatic>
 **                  Voltage Reference High                 : VREFH
@@ -764,7 +764,7 @@
 **                Lock Field                               : <Automatic>
 **                Pull Enable Field                        : <Automatic>
 **                Pull Select Field                        : <Automatic>
-**                Initial Value Field                      : <Automatic>
+**                Initial Value Field                      : High
 **                Digital Filter Field                     : <Automatic>
 **              Pin 31: PTB3                               : 
 **                Custom name, Signal name                 : PTB3
@@ -804,7 +804,7 @@
 **                Lock Field                               : <Automatic>
 **                Pull Enable Field                        : <Automatic>
 **                Pull Select Field                        : <Automatic>
-**                Initial Value Field                      : <Automatic>
+**                Initial Value Field                      : High
 **                Digital Filter Field                     : <Automatic>
 **              Pin 35: PTC9                               : 
 **                Custom name, Signal name                 : PTC9
@@ -933,23 +933,23 @@
 **                Digital Filter Field                     : <Automatic>
 **              Pin 49: PTA1                               : 
 **                Custom name, Signal name                 : PTA1
-**                Interrupt Status Field                   : <Automatic>
-**                Interrupt Configuration Field            : <Automatic>
-**                Pin Mux Field                            : <Automatic>
+**                Interrupt Status Field                   : Clear flag
+**                Interrupt Configuration Field            : ISF flag and Interrupt on falling-edge.
+**                Pin Mux Field                            : Alternative 1 (GPIO).
 **                Lock Field                               : <Automatic>
-**                Pull Enable Field                        : <Automatic>
-**                Pull Select Field                        : <Automatic>
-**                Initial Value Field                      : <Automatic>
+**                Pull Enable Field                        : Enabled
+**                Pull Select Field                        : Pull Up
+**                Initial Value Field                      : High
 **                Digital Filter Field                     : <Automatic>
 **              Pin 50: PTA0                               : 
 **                Custom name, Signal name                 : PTA0
 **                Interrupt Status Field                   : <Automatic>
 **                Interrupt Configuration Field            : <Automatic>
-**                Pin Mux Field                            : <Automatic>
+**                Pin Mux Field                            : Alternative 1 (GPIO).
 **                Lock Field                               : <Automatic>
-**                Pull Enable Field                        : <Automatic>
+**                Pull Enable Field                        : Disabled
 **                Pull Select Field                        : <Automatic>
-**                Initial Value Field                      : <Automatic>
+**                Initial Value Field                      : High
 **                Digital Filter Field                     : <Automatic>
 **              Pin 51: PTC7                               : 
 **                Custom name, Signal name                 : PTC7

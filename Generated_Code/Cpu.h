@@ -7,7 +7,7 @@
 **     Version     : Component 01.197, Driver 01.00, CPU db: 3.00.000
 **     Datasheet   : S32K14XRM Rev. 2, 02/2017
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-10-11, 16:46, # CodeGen: 37
+**     Date/Time   : 2018-10-15, 15:53, # CodeGen: 43
 **     Abstract    :
 **
 **     Settings    :
@@ -63,6 +63,9 @@
 #include "lpit_driver.h"
 #include "edma_driver.h"
 #include "lpuart_driver.h"
+#include "lpspi_master_driver.h"
+#include "lpspi_slave_driver.h"
+#include "lpspi_shared_function.h"
 #include "system_S32K144.h"
 
 /* Including needed modules to compile this module/procedure */
@@ -72,6 +75,8 @@
 #include "lpit1.h"
 #include "lpuart1.h"
 #include "dmaController1.h"
+#include "lpspi0_adc.h"
+#include "lpspi2_dac.h"
 
 #ifdef __cplusplus
 extern "C" {

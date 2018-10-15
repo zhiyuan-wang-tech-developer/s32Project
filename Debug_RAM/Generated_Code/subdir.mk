@@ -11,6 +11,8 @@ C_SRCS_QUOTED += \
 "../Generated_Code/dmaController1.c" \
 "../Generated_Code/lpTmr1.c" \
 "../Generated_Code/lpit1.c" \
+"../Generated_Code/lpspi0_adc.c" \
+"../Generated_Code/lpspi2_dac.c" \
 "../Generated_Code/lpuart1.c" \
 "../Generated_Code/pin_mux.c" \
 
@@ -20,6 +22,8 @@ C_SRCS += \
 ../Generated_Code/dmaController1.c \
 ../Generated_Code/lpTmr1.c \
 ../Generated_Code/lpit1.c \
+../Generated_Code/lpspi0_adc.c \
+../Generated_Code/lpspi2_dac.c \
 ../Generated_Code/lpuart1.c \
 ../Generated_Code/pin_mux.c \
 
@@ -29,6 +33,8 @@ OBJS_OS_FORMAT += \
 ./Generated_Code/dmaController1.o \
 ./Generated_Code/lpTmr1.o \
 ./Generated_Code/lpit1.o \
+./Generated_Code/lpspi0_adc.o \
+./Generated_Code/lpspi2_dac.o \
 ./Generated_Code/lpuart1.o \
 ./Generated_Code/pin_mux.o \
 
@@ -38,6 +44,8 @@ C_DEPS_QUOTED += \
 "./Generated_Code/dmaController1.d" \
 "./Generated_Code/lpTmr1.d" \
 "./Generated_Code/lpit1.d" \
+"./Generated_Code/lpspi0_adc.d" \
+"./Generated_Code/lpspi2_dac.d" \
 "./Generated_Code/lpuart1.d" \
 "./Generated_Code/pin_mux.d" \
 
@@ -47,6 +55,8 @@ OBJS += \
 ./Generated_Code/dmaController1.o \
 ./Generated_Code/lpTmr1.o \
 ./Generated_Code/lpit1.o \
+./Generated_Code/lpspi0_adc.o \
+./Generated_Code/lpspi2_dac.o \
 ./Generated_Code/lpuart1.o \
 ./Generated_Code/pin_mux.o \
 
@@ -56,6 +66,8 @@ OBJS_QUOTED += \
 "./Generated_Code/dmaController1.o" \
 "./Generated_Code/lpTmr1.o" \
 "./Generated_Code/lpit1.o" \
+"./Generated_Code/lpspi0_adc.o" \
+"./Generated_Code/lpspi2_dac.o" \
 "./Generated_Code/lpuart1.o" \
 "./Generated_Code/pin_mux.o" \
 
@@ -65,6 +77,8 @@ C_DEPS += \
 ./Generated_Code/dmaController1.d \
 ./Generated_Code/lpTmr1.d \
 ./Generated_Code/lpit1.d \
+./Generated_Code/lpspi0_adc.d \
+./Generated_Code/lpspi2_dac.d \
 ./Generated_Code/lpuart1.d \
 ./Generated_Code/pin_mux.d \
 
@@ -110,9 +124,25 @@ Generated_Code/lpit1.o: ../Generated_Code/lpit1.c
 	@echo 'Finished building: $<'
 	@echo ' '
 
-Generated_Code/lpuart1.o: ../Generated_Code/lpuart1.c
+Generated_Code/lpspi0_adc.o: ../Generated_Code/lpspi0_adc.c
 	@echo 'Building file: $<'
 	@echo 'Executing target #6 $<'
+	@echo 'Invoking: Standard S32DS C Compiler'
+	arm-none-eabi-gcc "@Generated_Code/lpspi0_adc.args" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "Generated_Code/lpspi0_adc.o" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+Generated_Code/lpspi2_dac.o: ../Generated_Code/lpspi2_dac.c
+	@echo 'Building file: $<'
+	@echo 'Executing target #7 $<'
+	@echo 'Invoking: Standard S32DS C Compiler'
+	arm-none-eabi-gcc "@Generated_Code/lpspi2_dac.args" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "Generated_Code/lpspi2_dac.o" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+Generated_Code/lpuart1.o: ../Generated_Code/lpuart1.c
+	@echo 'Building file: $<'
+	@echo 'Executing target #8 $<'
 	@echo 'Invoking: Standard S32DS C Compiler'
 	arm-none-eabi-gcc "@Generated_Code/lpuart1.args" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "Generated_Code/lpuart1.o" "$<"
 	@echo 'Finished building: $<'
@@ -120,7 +150,7 @@ Generated_Code/lpuart1.o: ../Generated_Code/lpuart1.c
 
 Generated_Code/pin_mux.o: ../Generated_Code/pin_mux.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #7 $<'
+	@echo 'Executing target #9 $<'
 	@echo 'Invoking: Standard S32DS C Compiler'
 	arm-none-eabi-gcc "@Generated_Code/pin_mux.args" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "Generated_Code/pin_mux.o" "$<"
 	@echo 'Finished building: $<'

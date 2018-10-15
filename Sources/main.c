@@ -27,6 +27,7 @@
 #include "Cpu.h"
 #include "stdio.h"
 #include "string.h"
+#include "systemRunFsm.h"
 
 volatile int exit_code = 0;
 
@@ -163,10 +164,15 @@ int main(void)
 	   printf("Error\n");
    }
 
+
+   /* LPSPI0 Initialization */
+
+
   /* For example: for(;;) { } */
 
     for(;;)
     {
+    	fsm_task_run();
 //	  PINS_DRV_TogglePins(PTE, 1<<8);
 //	  PINS_DRV_TogglePins(PTD, 1<<6);
 //	  PINS_DRV_TogglePins(PTD, 1<<5);

@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-#Progress monitor hint: 26
+#Progress monitor hint: 35
 first : all
 -include ../makefile.init
 
@@ -23,6 +23,7 @@ RM := rm -rf
 -include SDK/platform/drivers/src/edma/subdir.mk
 -include SDK/platform/drivers/src/interrupt/subdir.mk
 -include SDK/platform/drivers/src/lpit/subdir.mk
+-include SDK/platform/drivers/src/lpspi/subdir.mk
 -include SDK/platform/drivers/src/lptmr/subdir.mk
 -include SDK/platform/drivers/src/lpuart/subdir.mk
 -include SDK/platform/drivers/src/pins/subdir.mk
@@ -64,14 +65,14 @@ all: warning-messages explicit-dependencies AutoLivTest.elf secondary-outputs
 # Tool invocations
 AutoLivTest.elf: $(OBJS) D:/AllRound/Project/AutoLivTest/Project_Settings/Linker_Files/S32K144_64_ram.ld $(USER_OBJS)
 	@echo 'Building target: $@'
-	@echo 'Executing target #27 $@'
+	@echo 'Executing target #36 $@'
 	@echo 'Invoking: Standard S32DS C Linker'
 	arm-none-eabi-gcc -o "AutoLivTest.elf" "@AutoLivTest.args"  $(USER_OBJS_QUOTED) $(LIBS_QUOTED)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 AutoLivTest.siz: $(EXECUTABLES)
-	@echo 'Executing target #28 $@'
+	@echo 'Executing target #37 $@'
 	@echo 'Invoking: Standard S32DS Print Size'
 	arm-none-eabi-size --format=sysv --totals $(EXECUTABLES)
 	@echo 'Finished building: $@'

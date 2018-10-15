@@ -59,6 +59,7 @@ SDK/platform/drivers/src/clock \
 SDK/platform/drivers/src/edma \
 SDK/platform/drivers/src/interrupt \
 SDK/platform/drivers/src/lpit \
+SDK/platform/drivers/src/lpspi \
 SDK/platform/drivers/src/lptmr \
 SDK/platform/drivers/src/lpuart \
 SDK/platform/drivers/src/pins \
