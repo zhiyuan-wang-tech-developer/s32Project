@@ -8,6 +8,8 @@
 #ifndef ADC_H_
 #define ADC_H_
 
+#include "stdint.h"
+#include "stdbool.h"
 /*
  * External ADC MCP3911 command
  */
@@ -51,5 +53,10 @@
 
 void LPSPI0_init(void);
 void ADC_init(void);
+int32_t ADC_read_data(uint8_t channel, uint8_t *adc_data);
+uint8_t ADC_spi_write(uint8_t cmd, const uint8_t *pTxBuffer, uint8_t txLength);
+uint8_t ADC_spi_read(uint8_t cmd, uint8_t *pRxBuffer, uint8_t rxLength);
+
+extern bool adc_data_ready;
 
 #endif /* ADC_H_ */

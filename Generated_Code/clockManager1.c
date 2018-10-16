@@ -7,7 +7,7 @@
 **     Version     : Component SDK_S32K14x_09, Driver 01.00, CPU db: 3.00.000
 **     Repository  : SDK_S32K14x_09
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-10-15, 15:53, # CodeGen: 43
+**     Date/Time   : 2018-10-16, 09:42, # CodeGen: 47
 **
 **     Copyright 1997 - 2015 Freescale Semiconductor, Inc.
 **     Copyright 2016-2017 NXP
@@ -218,7 +218,7 @@ clock_manager_user_config_t clockManager1_InitConfig0 = {
         .clockOutConfig =
         {
             .initialize       = true,                                /*!< Initialize    */
-            .source           = SCG_CLOCKOUT_SRC_SPLL,               /*!< SCG CLKOUTSEL     */
+            .source           = SCG_CLOCKOUT_SRC_SOSC,               /*!< SCG CLKOUTSEL     */
         },
         .clockModeConfig =
         {
@@ -256,9 +256,9 @@ clock_manager_user_config_t clockManager1_InitConfig0 = {
         .clockOutConfig =              /*!< Clock Out configuration.           */
         {
             .initialize       = true,                                /*!< Initialize    */
-            .enable           = false,                               /*!< CLKOUTEN      */
-            .source           = SIM_CLKOUT_SEL_SYSTEM_SPLL_DIV2_CLK, /*!< CLKOUTSEL     */
-            .divider          = SIM_CLKOUT_DIV_BY_1,                 /*!< CLKOUTDIV     */
+            .enable           = true,                                /*!< CLKOUTEN      */
+            .source           = SIM_CLKOUT_SEL_SYSTEM_SOSC_DIV2_CLK, /*!< CLKOUTSEL     */
+            .divider          = SIM_CLKOUT_DIV_BY_5,                 /*!< CLKOUTDIV     */
         },
         .lpoClockConfig =              /*!< Low Power Clock configuration.     */
         {

@@ -28,6 +28,7 @@
 #include "stdio.h"
 #include "string.h"
 #include "systemRunFsm.h"
+#include "adc.h"
 
 volatile int exit_code = 0;
 
@@ -67,7 +68,7 @@ void TogglePTD6 (void)
 	}
 //	countTxSample++;
 	PINS_DRV_TogglePins(PTD, 1<<6);
-	LPUART_DRV_SendDataPolling(INST_LPUART1, uartTxBuffer, sizeof(uartTxBuffer));
+//	LPUART_DRV_SendDataPolling(INST_LPUART1, uartTxBuffer, sizeof(uartTxBuffer));
 }
 
 // available tx sample rate range = 1222 ~ 1280
@@ -166,8 +167,8 @@ int main(void)
 
 
    /* LPSPI0 Initialization */
-
-
+   LPSPI0_init();
+   ADC_init();
   /* For example: for(;;) { } */
 
     for(;;)
