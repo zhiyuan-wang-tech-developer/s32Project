@@ -43,7 +43,7 @@ void ADC_init(void)
 	ADC_spi_write(MCP3911_PHASE, adc_config_data, sizeof(adc_config_data));
 
 	// Enable PORTA 1 interrupt for detecting the falling edge on the ADC Ready pin
-	INT_SYS_SetPriority(PORTA_IRQn, 12); 						// Set interrupt priority for PORTA 1 (ADC data ready)
+	INT_SYS_SetPriority(PORTA_IRQn, 13); 						// Set interrupt priority for PORTA 1 (ADC data ready)
 	INT_SYS_ClearPending(PORTA_IRQn);
 	INT_SYS_EnableIRQ(PORTA_IRQn);
 }

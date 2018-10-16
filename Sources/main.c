@@ -29,6 +29,7 @@
 #include "string.h"
 #include "systemRunFsm.h"
 #include "adc.h"
+#include "dac.h"
 
 volatile int exit_code = 0;
 
@@ -167,20 +168,22 @@ int main(void)
 
 
    /* LPSPI0 Initialization */
-   LPSPI0_init();
-   ADC_init();
-  /* For example: for(;;) { } */
+   LPSPI0_init();						/* Initialize the LPSPI0 for ADC */
+   LPSPI2_init();						/* Initialize the LPSPI2 for DAC */
+   set_DAC(dac_val_16, true);			/* Set the initial DAC output */
+   ADC_init();							/* Configure the ADC */
+   /* For example: for(;;) { } */
 
-    for(;;)
-    {
-    	fsm_task_run();
+   for(;;)
+   {
+	   fsm_task_run();
 //	  PINS_DRV_TogglePins(PTE, 1<<8);
 //	  PINS_DRV_TogglePins(PTD, 1<<6);
 //	  PINS_DRV_TogglePins(PTD, 1<<5);
 //	  PINS_DRV_TogglePins(PTD, 1<<7);
 
 //    	countfor = LPIT_DRV_GetCurrentTimerCount(INST_LPIT1, 0);
-    }
+   }
 
   /*** Don't write any code pass this line, or it will be deleted during code generation. ***/
   /*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/
