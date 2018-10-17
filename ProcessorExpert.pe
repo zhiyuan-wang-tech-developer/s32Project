@@ -3,7 +3,7 @@
   <Header>
     <Name>AutoLivTest</Name>
     <SavedBy>dynatron2018</SavedBy>
-    <ModificationStamp>26</ModificationStamp>
+    <ModificationStamp>30</ModificationStamp>
     <Date>2018-10-09</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.12.2.RT7_b1743-0713</PEversion>
@@ -7318,14 +7318,14 @@
         <ItemSymbol>PTE_port_9</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>&lt;Automatic&gt;</Value>
+        <Value>PTE9</Value>
         <SharedPrphMode>false</SharedPrphMode>
       </ItemState>
       <ItemState>
         <ItemSymbol>PTE_port_9_Dir</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>&lt;Automatic&gt;</Value>
+        <Value>Output</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>PTE_port_10</ItemSymbol>
@@ -9270,15 +9270,15 @@
         <ItemSymbol>PTE9_IRQC</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>&lt;Automatic&gt;</Value>
-        <PinFuncPropStateId>&lt;Automatic&gt;</PinFuncPropStateId>
+        <Value>Interrupt Status Flag (ISF) is disabled.</Value>
+        <PinFuncPropStateId>state_0000</PinFuncPropStateId>
       </ItemState>
       <ItemState>
         <ItemSymbol>PTE9_MUX</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>&lt;Automatic&gt;</Value>
-        <PinFuncPropStateId>&lt;Automatic&gt;</PinFuncPropStateId>
+        <Value>Alternative 1 (GPIO).</Value>
+        <PinFuncPropStateId>state_001</PinFuncPropStateId>
       </ItemState>
       <ItemState>
         <ItemSymbol>PTE9_LK</ItemSymbol>
@@ -9305,15 +9305,15 @@
         <ItemSymbol>PTE9_InitValue</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>&lt;Automatic&gt;</Value>
-        <PinFuncPropStateId>&lt;Automatic&gt;</PinFuncPropStateId>
+        <Value>High</Value>
+        <PinFuncPropStateId>state_1</PinFuncPropStateId>
       </ItemState>
       <ItemState>
         <ItemSymbol>PTE9_DigitalFilter</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>&lt;Automatic&gt;</Value>
-        <PinFuncPropStateId>&lt;Automatic&gt;</PinFuncPropStateId>
+        <Value>Disabled</Value>
+        <PinFuncPropStateId>state_0</PinFuncPropStateId>
       </ItemState>
       <ItemState>
         <ItemSymbol>PTE8</ItemSymbol>
@@ -13521,7 +13521,7 @@
     <Repository>file:/${ProcessorExpert_loc}/../../S32DS/S32SDK_S32K14x_EAR_0.8.6/tools/pex/Repositories/SDK_S32K14x_09_Repository</Repository>
     <ComponentUUID>com.freescale.processorexpert.ksdk.lpuart</ComponentUUID>
     <BeanType>lpuart</BeanType>
-    <Name>lpuart1</Name>
+    <Name>lpuart0</Name>
     <CompNumb>28</CompNumb>
     <CompEnabled>true</CompEnabled>
     <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
@@ -13536,7 +13536,7 @@
         <ItemSymbol>DeviceName</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>lpuart1</Value>
+        <Value>lpuart0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>PeriphDevice</ItemSymbol>
@@ -13573,7 +13573,7 @@
         <ItemSymbol>InitStateStruct</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>lpuart1_State</Value>
+        <Value>lpuart0_State</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>Configuration</ItemSymbol>
@@ -13594,7 +13594,7 @@
         <ItemSymbol>Configuration_NAME0</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>lpuart1_InitConfig0</Value>
+        <Value>lpuart0_InitConfig0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>Configuration_TYPE0</ItemSymbol>

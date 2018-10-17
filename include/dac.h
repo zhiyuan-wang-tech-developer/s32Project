@@ -14,6 +14,7 @@
 #define SPI2_BUFFER_SIZE 5
 
 extern int16_t dac_val_16;
+extern bool dac_steps;
 
 bool CheckAdcValueOffset(int32_t adc_val);
 

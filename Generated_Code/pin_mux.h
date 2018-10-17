@@ -7,7 +7,7 @@
 **     Version     : Component 1.2.0, Driver 1.4, CPU db: 3.00.000
 **     Repository  : SDK_S32K14x_09
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-10-15, 15:53, # CodeGen: 43
+**     Date/Time   : 2018-10-17, 15:43, # CodeGen: 56
 **     Abstract    :
 **
 **     Settings    :
@@ -318,8 +318,8 @@
 **                  Direction                              : Output
 **                  Pin 8                                  : PTE8
 **                  Direction                              : Output
-**                  Pin 9                                  : <Automatic>
-**                  Direction                              : <Automatic>
+**                  Pin 9                                  : PTE9
+**                  Direction                              : Output
 **                  Pin 10                                 : <Automatic>
 **                  Direction                              : <Automatic>
 **                  Pin 11                                 : <Automatic>
@@ -617,13 +617,13 @@
 **              Pin 16: PTE9                               : 
 **                Custom name, Signal name                 : PTE9
 **                Interrupt Status Field                   : <Automatic>
-**                Interrupt Configuration Field            : <Automatic>
-**                Pin Mux Field                            : <Automatic>
+**                Interrupt Configuration Field            : Interrupt Status Flag (ISF) is disabled.
+**                Pin Mux Field                            : Alternative 1 (GPIO).
 **                Lock Field                               : <Automatic>
 **                Pull Enable Field                        : <Automatic>
 **                Pull Select Field                        : <Automatic>
-**                Initial Value Field                      : <Automatic>
-**                Digital Filter Field                     : <Automatic>
+**                Initial Value Field                      : High
+**                Digital Filter Field                     : Disabled
 **              Pin 17: PTE8                               : 
 **                Custom name, Signal name                 : PTE8
 **                Interrupt Status Field                   : <Automatic>

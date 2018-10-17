@@ -9,6 +9,7 @@
 #define SYSTEMRUNFSM_H_
 
 #include "stdint.h"
+#include "stdbool.h"
 
 #define	TAPS	  4		/* Number of filter taps in FIR filter */
 
@@ -45,10 +46,21 @@ typedef union
 	} item;
 } UART_DATA_t;
 
+typedef union
+{
+	int32_t value;
+	uint8_t byte[4];
+} DATA_32_t;
+
 extern SYS_FSM_STATES fsm_state; // Hold the FSM current state.
 
-void fsm_task_run(void);
+extern UART_DATA_t uart_data;
+extern bool uart_tx_buffer_mutex;
+extern uint8_t uart_sync;
 
+void fsm_task_run(void);
 int32_t fir_filter(int64_t data_64);
+uint8_t checksum(uint8_t *p_uart_data, uint8_t size);
+void print_uart_data(void);
 
 #endif /* SYSTEMRUNFSM_H_ */

@@ -173,5 +173,33 @@
       <EmptySection_DummyValue />
     </Events>
   </Bean>
+  <Bean name="lpspi0_adc" type="lpspi">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="lpspi0_adc" />
+      <Device v="LPSPI0" />
+      <Component_version v="S32K144_SDK01" />
+    </Properties>
+    <Methods>
+      <EmptySection_DummyValue />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
+  <Bean name="lpspi2_dac" type="lpspi">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="lpspi2_dac" />
+      <Device v="LPSPI2" />
+      <Component_version v="S32K144_SDK01" />
+    </Properties>
+    <Methods>
+      <EmptySection_DummyValue />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
 </PE_PROJECT_SETTINGS_DOCUMENTATION>
 

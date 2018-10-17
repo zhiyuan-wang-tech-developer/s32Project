@@ -132,10 +132,10 @@
       <EmptySection_DummyValue />
     </Events>
   </Bean>
-  <Bean name="lpuart1" type="lpuart">
+  <Bean name="lpuart0" type="lpuart">
     <Enabled v="Y" />
     <Properties>
-      <Component_name v="lpuart1" />
+      <Component_name v="lpuart0" />
       <Device v="LPUART0" />
       <Component_version v="S32K144_SDK01" />
     </Properties>

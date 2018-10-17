@@ -52,7 +52,7 @@ bool CheckAdcValueOffset(int32_t adc_val)
 	}
 	else
 	{
-		dac_steps = false;
+//		dac_steps = false;							// dac_steps is set to false after uart date is updated in state machine
 		AdcValueNeedOffset = false;
 		dac_change_count = 0;
 	}

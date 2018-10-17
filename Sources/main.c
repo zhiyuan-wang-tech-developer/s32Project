@@ -36,25 +36,33 @@ volatile int exit_code = 0;
 /* User includes (#include below this line is not maintained by Processor Expert) */
 
 uint32_t countTxSample = 0;
-uint32_t countTxSamplePerSec = 0;
+//uint32_t countTxSamplePerSec = 0;
 
-const uint8_t uartTxBuffer[9] = "allround\n";
-//uint8_t uartTxBuffer[9] = {0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55};
+const uint8_t uartText[9] = "allround\n";
+uint8_t uartTxBuffer[9] = {0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55};
 //uint8_t uartTxBuffer[9] = {'\0'};
 
 void TogglePTD5 (void)
 {
+	// 1s timing
+	static uint16_t sec_counter = 0;
 	if( LPIT_DRV_GetInterruptFlagTimerChannels(INST_LPIT1, 0x01u) )
 	{
 		LPIT_DRV_ClearInterruptFlagTimerChannels(INST_LPIT1, 0x01u);
 	}
+	sec_counter %= 15;	// every 15 seconds the counter is cleared
+	if( sec_counter == 0 )
+	{
+		uart_sync ^= 0x80;		/* Toggle uart_sync MSB bit */
+	}
+	sec_counter++;
 //	countTxSamplePerSec = countTxSample;
 //	countTxSample = 0;
 //	printf("Tx Sample Rate: %lu\n", countTxSamplePerSec);
 
 //	PINS_DRV_TogglePins(PTE, 1<<8);
 
-//	LPUART_DRV_SendDataPolling(INST_LPUART1, uartTxBuffer, sizeof(uartTxBuffer));
+//	LPUART_DRV_SendDataPolling(INST_LPUART0, uartTxBuffer, sizeof(uartTxBuffer));
 
 //	PINS_DRV_TogglePins(PTD, 1<<5);
 }
@@ -62,14 +70,34 @@ void TogglePTD5 (void)
 //void LPTMR0_IRQHandler(void)
 void TogglePTD6 (void)
 {
+	// 792us timing
 	if( LPTMR_DRV_GetCompareFlag(INST_LPTMR1) )
 	{
 		// MUST clear compare flag, otherwise program will get stuck in the lptmr0 ISR.
 		LPTMR_DRV_ClearCompareFlag(INST_LPTMR1);
 	}
 //	countTxSample++;
+//	memcpy(uartTxBuffer, (uint8_t *)&uart_data, 9);
 	PINS_DRV_TogglePins(PTD, 1<<6);
-//	LPUART_DRV_SendDataPolling(INST_LPUART1, uartTxBuffer, sizeof(uartTxBuffer));
+
+//	LPUART_DRV_SendDataPolling(INST_LPUART0, uartText, sizeof(uartText));
+//	LPUART_DRV_SendData(INST_LPUART0, uartText, sizeof(uartText));
+
+//	LPUART_DRV_SendDataPolling(INST_LPUART0, uart_data.array, sizeof(uart_data.array));
+//	LPUART_DRV_SendData(INST_LPUART0, uart_data.array, sizeof(uart_data.array));
+
+//	LPUART_DRV_SendDataPolling(INST_LPUART0, uartTxBuffer, sizeof(uartTxBuffer));
+	if(uart_tx_buffer_mutex == false)
+	{
+		uart_tx_buffer_mutex = true;
+		LPUART_DRV_SendDataPolling(INST_LPUART0, uartTxBuffer, sizeof(uartTxBuffer));
+		uart_tx_buffer_mutex = false;
+	}
+	else
+	{
+		countTxSample++;
+	}
+
 }
 
 // available tx sample rate range = 1222 ~ 1280
@@ -125,7 +153,7 @@ int main(void)
 
     LPTMR_DRV_Init(INST_LPTMR1, &lpTmr1_config0, false);
 
-    INT_SYS_SetPriority(LPTMR0_IRQn, 10);
+    INT_SYS_SetPriority(LPTMR0_IRQn, 5);
 
     if( !INT_SYS_GetActive(LPTMR0_IRQn) )
     {
@@ -161,11 +189,13 @@ int main(void)
 
     LPIT_DRV_StartTimerChannels(INST_LPIT1, 0x01U);
 
-   if( LPUART_DRV_Init(INST_LPUART1, &lpuart1_State, &lpuart1_InitConfig0) != STATUS_SUCCESS )
+   if( LPUART_DRV_Init(INST_LPUART0, &lpuart0_State, &lpuart0_InitConfig0) != STATUS_SUCCESS )
    {
 	   printf("Error\n");
    }
-
+   INT_SYS_SetPriority(LPUART0_RxTx_IRQn, 8);
+   INT_SYS_ClearPending(LPUART0_RxTx_IRQn);
+   INT_SYS_EnableIRQ(LPUART0_RxTx_IRQn);
 
    /* LPSPI0 Initialization */
    LPSPI0_init();						/* Initialize the LPSPI0 for ADC */
@@ -181,7 +211,7 @@ int main(void)
 //	  PINS_DRV_TogglePins(PTD, 1<<6);
 //	  PINS_DRV_TogglePins(PTD, 1<<5);
 //	  PINS_DRV_TogglePins(PTD, 1<<7);
-
+//	   memcpy(uartTxBuffer, (uint8_t *)&uart_data, 9);
 //    	countfor = LPIT_DRV_GetCurrentTimerCount(INST_LPIT1, 0);
    }
 

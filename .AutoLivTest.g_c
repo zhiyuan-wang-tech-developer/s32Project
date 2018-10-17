@@ -542,7 +542,7 @@
         <Line>lpspi0_adc</Line>
         <Line>lpspi2_dac</Line>
         <Line>lpTmr1</Line>
-        <Line>lpuart1</Line>
+        <Line>lpuart0</Line>
         <Line>pin_mux</Line>
       </GenAllModules>
       <GenExternModules lines_count="0" />
@@ -551,7 +551,7 @@
         <Line>pin_mux</Line>
         <Line>lpTmr1</Line>
         <Line>lpit1</Line>
-        <Line>lpuart1</Line>
+        <Line>lpuart0</Line>
         <Line>dmaController1</Line>
         <Line>lpspi0_adc</Line>
         <Line>lpspi2_dac</Line>
@@ -559,7 +559,7 @@
     </GenFiles>
     <SignalListFile />
     <DestinationCompiler>GNUC</DestinationCompiler>
-    <ProjectModificationStamp>26</ProjectModificationStamp>
+    <ProjectModificationStamp>30</ProjectModificationStamp>
   </Options>
   <CpuID_6>
     <Generated>true</Generated>
@@ -567,7 +567,7 @@
     <GenComponentVersion>01.197</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1297055403</HeaderAge>
+    <HeaderAge>1297185194</HeaderAge>
     <CodeAge>1297055403</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>3</GenNumMethods>
@@ -600,7 +600,7 @@
     <GenComponentVersion>01.197</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1297055403</HeaderAge>
+    <HeaderAge>1297185194</HeaderAge>
     <CodeAge>1297055403</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>3</GenNumMethods>
@@ -708,8 +708,8 @@
     <GenComponentVersion>1.2.0</GenComponentVersion>
     <GenDriverVersion>1.4</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1297055403</HeaderAge>
-    <CodeAge>1297055403</CodeAge>
+    <HeaderAge>1297186172</HeaderAge>
+    <CodeAge>1297186172</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>25</GenNumMethods>
     <PINS_DRV_Init>true</PINS_DRV_Init>
@@ -824,12 +824,12 @@
   </ComponentID_15>
   <ComponentID_28>
     <Generated>true</Generated>
-    <GenCompName>lpuart1</GenCompName>
+    <GenCompName>lpuart0</GenCompName>
     <GenComponentVersion>SDK_S32K14x_09</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1296795083</HeaderAge>
-    <CodeAge>1296795083</CodeAge>
+    <HeaderAge>1297185194</HeaderAge>
+    <CodeAge>1297185194</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>16</GenNumMethods>
     <LPUART_DRV_Init>true</LPUART_DRV_Init>

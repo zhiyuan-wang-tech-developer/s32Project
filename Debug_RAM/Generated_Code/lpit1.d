@@ -44,7 +44,7 @@ Generated_Code/lpit1.o: ../Generated_Code/lpit1.c \
  C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/startup/system_S32K144.h \
  ../Generated_Code/pin_mux.h \
  C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/pins_driver.h \
- ../Generated_Code/lpTmr1.h ../Generated_Code/lpuart1.h \
+ ../Generated_Code/lpTmr1.h ../Generated_Code/lpuart0.h \
  ../Generated_Code/dmaController1.h ../Generated_Code/lpspi0_adc.h \
  ../Generated_Code/lpspi2_dac.h
 
@@ -142,7 +142,7 @@ C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/pi
 
 ../Generated_Code/lpTmr1.h:
 
-../Generated_Code/lpuart1.h:
+../Generated_Code/lpuart0.h:
 
 ../Generated_Code/dmaController1.h:
 

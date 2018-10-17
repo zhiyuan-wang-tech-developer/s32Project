@@ -118,30 +118,30 @@ Module "lpit1"     (component lpit)
    - lpit1_LPIT_DRV_GetInterruptFlagTimerChannels -Gets the current interrupt flag of timer channels.
    - lpit1_LPIT_DRV_ClearInterruptFlagTimerChannels -Clears the interrupt flag of timer channels.
 
-Module "lpuart1"   (component lpuart)
-   - lpuart1_LPUART_DRV_Init -Initializes an LPUART operation instance.
-   - lpuart1_LPUART_DRV_Deinit -Shuts down the LPUART by disabling interrupts and transmitter/receiver.
-   - lpuart1_LPUART_DRV_InstallRxCallback -Installs callback function for the LPUART receive.
-   - lpuart1_LPUART_DRV_InstallTxCallback -Installs callback function for the LPUART transmit.
-   - lpuart1_LPUART_DRV_SendDataBlocking -Sends data out through the LPUART module using a blocking method.
-   - lpuart1_LPUART_DRV_SendDataPolling -Send out multiple bytes of data using polling method.
-   - lpuart1_LPUART_DRV_SendData -Sends data out through the LPUART module using a non-blocking method. This enables an a-sync 
+Module "lpuart0"   (component lpuart)
+   - lpuart0_LPUART_DRV_Init -Initializes an LPUART operation instance.
+   - lpuart0_LPUART_DRV_Deinit -Shuts down the LPUART by disabling interrupts and transmitter/receiver.
+   - lpuart0_LPUART_DRV_InstallRxCallback -Installs callback function for the LPUART receive.
+   - lpuart0_LPUART_DRV_InstallTxCallback -Installs callback function for the LPUART transmit.
+   - lpuart0_LPUART_DRV_SendDataBlocking -Sends data out through the LPUART module using a blocking method.
+   - lpuart0_LPUART_DRV_SendDataPolling -Send out multiple bytes of data using polling method.
+   - lpuart0_LPUART_DRV_SendData -Sends data out through the LPUART module using a non-blocking method. This enables an a-sync 
                 method for transmitting data. When used with a non-blocking receive, the LPUART can perform a full duplex 
                 operation. Non-blocking means that the function returns immediately. The application has to get the transmit 
                 status to know when the transmit is complete.
-   - lpuart1_LPUART_DRV_GetTransmitStatus -Returns whether the previous transmit is complete.
-   - lpuart1_LPUART_DRV_AbortSendingData -Terminates a non-blocking transmission early.
-   - lpuart1_LPUART_DRV_ReceiveDataBlocking -Gets data from the LPUART module by using a blocking method. Blocking means that 
+   - lpuart0_LPUART_DRV_GetTransmitStatus -Returns whether the previous transmit is complete.
+   - lpuart0_LPUART_DRV_AbortSendingData -Terminates a non-blocking transmission early.
+   - lpuart0_LPUART_DRV_ReceiveDataBlocking -Gets data from the LPUART module by using a blocking method. Blocking means that 
                 the function does not return until the receive is complete.
-   - lpuart1_LPUART_DRV_ReceiveDataPolling -Receive multiple bytes of data using polling method.
-   - lpuart1_LPUART_DRV_ReceiveData -Gets data from the LPUART module by using a non-blocking method. This enables an a-sync 
+   - lpuart0_LPUART_DRV_ReceiveDataPolling -Receive multiple bytes of data using polling method.
+   - lpuart0_LPUART_DRV_ReceiveData -Gets data from the LPUART module by using a non-blocking method. This enables an a-sync 
                 method for receiving data. When used with a non-blocking transmission, the LPUART can perform a full duplex 
                 operation. Non-blocking means that the function returns immediately. The application has to get the receive 
                 status to know when the receive is complete.
-   - lpuart1_LPUART_DRV_GetReceiveStatus -Returns whether the previous receive is complete.
-   - lpuart1_LPUART_DRV_AbortReceivingData -Terminates a non-blocking receive early.
-   - lpuart1_LPUART_DRV_SetBaudRate -Configures the LPUART baud rate.
-   - lpuart1_LPUART_DRV_GetBaudRate -Returns the LPUART baud rate.
+   - lpuart0_LPUART_DRV_GetReceiveStatus -Returns whether the previous receive is complete.
+   - lpuart0_LPUART_DRV_AbortReceivingData -Terminates a non-blocking receive early.
+   - lpuart0_LPUART_DRV_SetBaudRate -Configures the LPUART baud rate.
+   - lpuart0_LPUART_DRV_GetBaudRate -Returns the LPUART baud rate.
 
 Module "dmaController1" (component edma)
    - dmaController1_EDMA_DRV_Init -Initializes the eDMA module.

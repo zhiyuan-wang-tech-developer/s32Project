@@ -1,8 +1,8 @@
-Generated_Code/lpuart1.o: ../Generated_Code/lpuart1.c \
+Generated_Code/lpuart0.o: ../Generated_Code/lpuart0.c \
  C:/NXP/S32DS_ARM_v2018.R1/S32DS/arm_ewl2/EWL_C/include/lib_c99.prefix \
  C:/NXP/S32DS_ARM_v2018.R1/S32DS/arm_ewl2/EWL_C/include/common.prefix \
  C:/NXP/S32DS_ARM_v2018.R1/S32DS/arm_ewl2/EWL_C/include/ewl_c_version.h \
- ../Generated_Code/lpuart1.h ../Generated_Code/clockManager1.h \
+ ../Generated_Code/lpuart0.h ../Generated_Code/clockManager1.h \
  C:/NXP/S32DS_ARM_v2018.R1/S32DS/arm_ewl2/EWL_C/include/stdbool.h \
  C:/NXP/S32DS_ARM_v2018.R1/S32DS/arm_ewl2/EWL_C/include/ansi_parms.h \
  C:/NXP/S32DS_ARM_v2018.R1/S32DS/arm_ewl2/EWL_C/include/ewlGlobals.h \
@@ -54,7 +54,7 @@ C:/NXP/S32DS_ARM_v2018.R1/S32DS/arm_ewl2/EWL_C/include/common.prefix:
 
 C:/NXP/S32DS_ARM_v2018.R1/S32DS/arm_ewl2/EWL_C/include/ewl_c_version.h:
 
-../Generated_Code/lpuart1.h:
+../Generated_Code/lpuart0.h:
 
 ../Generated_Code/clockManager1.h:
 
