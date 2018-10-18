@@ -35,7 +35,7 @@ volatile int exit_code = 0;
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
 
-uint32_t countTxSample = 0;
+//uint32_t countTxSample = 0;
 //uint32_t countTxSamplePerSec = 0;
 
 const uint8_t uartText[9] = "allround\n";
@@ -63,8 +63,6 @@ void TogglePTD5 (void)
 //	PINS_DRV_TogglePins(PTE, 1<<8);
 
 //	LPUART_DRV_SendDataPolling(INST_LPUART0, uartTxBuffer, sizeof(uartTxBuffer));
-
-//	PINS_DRV_TogglePins(PTD, 1<<5);
 }
 
 //void LPTMR0_IRQHandler(void)
@@ -76,9 +74,7 @@ void TogglePTD6 (void)
 		// MUST clear compare flag, otherwise program will get stuck in the lptmr0 ISR.
 		LPTMR_DRV_ClearCompareFlag(INST_LPTMR1);
 	}
-//	countTxSample++;
-//	memcpy(uartTxBuffer, (uint8_t *)&uart_data, 9);
-	PINS_DRV_TogglePins(PTD, 1<<6);
+//	static uint8_t countTxDummy = 0; // count dummy texts that are transmitted when the uart tx buffer is accessed by the state-machine
 
 //	LPUART_DRV_SendDataPolling(INST_LPUART0, uartText, sizeof(uartText));
 //	LPUART_DRV_SendData(INST_LPUART0, uartText, sizeof(uartText));
@@ -87,20 +83,28 @@ void TogglePTD6 (void)
 //	LPUART_DRV_SendData(INST_LPUART0, uart_data.array, sizeof(uart_data.array));
 
 //	LPUART_DRV_SendDataPolling(INST_LPUART0, uartTxBuffer, sizeof(uartTxBuffer));
+
+	// Check if the state machine is copying uart data to uart tx buffer
 	if(uart_tx_buffer_mutex == false)
 	{
 		uart_tx_buffer_mutex = true;
+		// The state machine now can not access the uart tx buffer
 		LPUART_DRV_SendDataPolling(INST_LPUART0, uartTxBuffer, sizeof(uartTxBuffer));
 		uart_tx_buffer_mutex = false;
+		PINS_DRV_TogglePins(PTD, 1<<6); 	// used for waveform observation
 	}
 	else
 	{
-		countTxSample++;
+		// The uart tx buffer is now being accessed by the state-machine.
+		// The uart tx buffer is now being copied.
+//		++countTxDummy;
+		// Here, you can send the uart data array directly and safely
+		LPUART_DRV_SendDataPolling(INST_LPUART0, uart_data.array, sizeof(uart_data.array));
+		PINS_DRV_TogglePins(PTD, 1<<5);
 	}
-
 }
 
-// available tx sample rate range = 1222 ~ 1280
+// available TX sample rate range = 1222 ~ 1280
 bool setTxSampleRate(uint16_t rate)
 {
 	if( (rate < 1222) || (rate > 1280) )
@@ -211,7 +215,6 @@ int main(void)
 //	  PINS_DRV_TogglePins(PTD, 1<<6);
 //	  PINS_DRV_TogglePins(PTD, 1<<5);
 //	  PINS_DRV_TogglePins(PTD, 1<<7);
-//	   memcpy(uartTxBuffer, (uint8_t *)&uart_data, 9);
 //    	countfor = LPIT_DRV_GetCurrentTimerCount(INST_LPIT1, 0);
    }
 

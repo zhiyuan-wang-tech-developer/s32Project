@@ -17,7 +17,7 @@
 SYS_FSM_STATES 	fsm_state = INITIALIZE;
 UART_DATA_t		uart_data;
 extern uint8_t uartTxBuffer[9];
-bool uart_tx_buffer_mutex = false;
+bool uart_tx_buffer_mutex = false;		// The uart tx buffer can be either accessed by state-machine or timer ISR.
 
 uint8_t uart_sync = 0;		// UART Tx Synchronization Flag (MSB bit is used)
 uint8_t saw = 0;
@@ -53,6 +53,8 @@ void fsm_task_run(void)
 			uart_data.item.TYPE = 0x01;
 			uart_data.item.SIZE = 0x09;
 			saw = 0;
+			/* Update first 3 bytes in uart tx buffer */
+			memcpy(uartTxBuffer, (uint8_t *)&(uart_data.item.HEADER), 3);
 			fsm_state = READ_ADC;
 			break;
 
@@ -112,13 +114,22 @@ void fsm_task_run(void)
 			saw++;
 			uart_data.item.CHECKSUM = checksum(uart_data.array, (sizeof(uart_data.array) - 1));  // Do not include the last byte that is to store checksum
 //			print_uart_data();
-			fsm_state = READ_ADC;
+			fsm_state = UPDATE_UART_TX_BUFFER;
+			break;
+
+		case UPDATE_UART_TX_BUFFER:
+			// Check if the uart tx buffer is being accessed by timer ISR
 			if(uart_tx_buffer_mutex == false)
 			{
 				uart_tx_buffer_mutex = true;
+				// Now the timer ISR can not access the uart tx buffer.
 				memcpy(uartTxBuffer, (uint8_t *)&uart_data, 9);
+				// Only copy last 6 bytes to the uart tx buffer
+//				memcpy(&uartTxBuffer[3], (uint8_t *)&(uart_data.item.DATA0), 6);
+				// Now the timer ISR can access the uart tx buffer.
 				uart_tx_buffer_mutex = false;
 			}
+			fsm_state = READ_ADC;
 			break;
 
 		default:

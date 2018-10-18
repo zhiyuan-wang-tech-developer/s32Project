@@ -23,7 +23,8 @@ typedef enum
 	CHECK_RANGE,		// Check if the ADC raw date is in the range.
 	OFFSET_DAC,			// Offset DAC if the ADC raw data is not in the range.
 	UPDATE_SENSOR_OUTPUT,		// Convert ADC value to voltage and then filter it by FIR.
-	UPDATE_UART_DATA			// Update the UART data.
+	UPDATE_UART_DATA,			// Update the UART data.
+	UPDATE_UART_TX_BUFFER		// Copy uart data array to uart tx buffer
 } SYS_FSM_STATES;
 
 /*
