@@ -39,7 +39,7 @@ volatile int exit_code = 0;
 //uint32_t countTxSamplePerSec = 0;
 
 const uint8_t uartText[9] = "allround\n";
-uint8_t uartTxBuffer[9] = {0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55};
+uint8_t uartTxBuffer[9] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09};
 //uint8_t uartTxBuffer[9] = {'\0'};
 
 void TogglePTD5 (void)
@@ -77,6 +77,7 @@ void TogglePTD6 (void)
 //	static uint8_t countTxDummy = 0; // count dummy texts that are transmitted when the uart tx buffer is accessed by the state-machine
 
 //	LPUART_DRV_SendDataPolling(INST_LPUART0, uartText, sizeof(uartText));
+//	LPUART_DRV_SendDataBlocking(INST_LPUART0, uartText, sizeof(uartText), 10);
 //	LPUART_DRV_SendData(INST_LPUART0, uartText, sizeof(uartText));
 
 //	LPUART_DRV_SendDataPolling(INST_LPUART0, uart_data.array, sizeof(uart_data.array));
@@ -89,7 +90,8 @@ void TogglePTD6 (void)
 	{
 		uart_tx_buffer_mutex = true;
 		// The state machine now can not access the uart tx buffer
-		LPUART_DRV_SendDataPolling(INST_LPUART0, uartTxBuffer, sizeof(uartTxBuffer));
+//		LPUART_DRV_SendDataPolling(INST_LPUART0, uartTxBuffer, sizeof(uartTxBuffer));
+		LPUART_DRV_SendDataBlocking(INST_LPUART0, uartTxBuffer, sizeof(uartTxBuffer), 10);
 		uart_tx_buffer_mutex = false;
 		PINS_DRV_TogglePins(PTD, 1<<6); 	// used for waveform observation
 	}
@@ -99,7 +101,8 @@ void TogglePTD6 (void)
 		// The uart tx buffer is now being copied.
 //		++countTxDummy;
 		// Here, you can send the uart data array directly and safely
-		LPUART_DRV_SendDataPolling(INST_LPUART0, uart_data.array, sizeof(uart_data.array));
+//		LPUART_DRV_SendDataPolling(INST_LPUART0, &(uart_data.array[0]), sizeof(uart_data.array));
+		LPUART_DRV_SendDataBlocking(INST_LPUART0, &(uart_data.array[0]), sizeof(uart_data.array), 10);
 		PINS_DRV_TogglePins(PTD, 1<<5);
 	}
 }
@@ -167,7 +170,7 @@ int main(void)
 
     PINS_DRV_ClearPins(PTD, 1<<6);
 
-    setTxSampleRate(1260); // Adjustable Tx sample rate: 1222 - 1280
+    setTxSampleRate(1230); // Adjustable Tx sample rate: 1222 - 1280
 
     if( !LPTMR_DRV_IsRunning(INST_LPTMR1) )
     {
@@ -197,9 +200,9 @@ int main(void)
    {
 	   printf("Error\n");
    }
-   INT_SYS_SetPriority(LPUART0_RxTx_IRQn, 8);
-   INT_SYS_ClearPending(LPUART0_RxTx_IRQn);
-   INT_SYS_EnableIRQ(LPUART0_RxTx_IRQn);
+//   INT_SYS_SetPriority(LPUART0_RxTx_IRQn, 8);
+//   INT_SYS_ClearPending(LPUART0_RxTx_IRQn);
+//   INT_SYS_EnableIRQ(LPUART0_RxTx_IRQn);
 
    /* LPSPI0 Initialization */
    LPSPI0_init();						/* Initialize the LPSPI0 for ADC */

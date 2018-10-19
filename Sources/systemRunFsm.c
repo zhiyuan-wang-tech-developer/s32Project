@@ -104,15 +104,21 @@ void fsm_task_run(void)
 		case UPDATE_UART_DATA:
 			// Update UART data array so that it is sent by bluetooth module.
 			// Put data in UART data array
+//			uart_data.item.DATA0 = 0xD1;
 			uart_data.item.DATA0 = filter_output_32.byte[2]; 		// high byte
+//			uart_data.item.DATA1 = 0xD2;
 			uart_data.item.DATA1 = filter_output_32.byte[1];		// middle byte
+//			uart_data.item.DATA2 = 0xD3;
 			uart_data.item.DATA2 = filter_output_32.byte[0];		// low byte
 			// Set other UART fields
+//			uart_data.item.STATUS = 0x88;
 			uart_data.item.STATUS = (uart_sync) | (dac_steps);  	// uart_sync MSB indicates synchronization bit;
 			dac_steps = false;										// dac_steps is set to false after uart_data is updated
+//			uart_data.item.SAW = 0x33;
 			uart_data.item.SAW = saw;
 			saw++;
-			uart_data.item.CHECKSUM = checksum(uart_data.array, (sizeof(uart_data.array) - 1));  // Do not include the last byte that is to store checksum
+			uart_data.item.CHECKSUM = 0xAA;
+//			uart_data.item.CHECKSUM = checksum(uart_data.array, (sizeof(uart_data.array) - 1));  // Do not include the last byte that is to store checksum
 //			print_uart_data();
 			fsm_state = UPDATE_UART_TX_BUFFER;
 			break;
