@@ -73,6 +73,7 @@ void TogglePTD6 (void)
 	{
 		// MUST clear compare flag, otherwise program will get stuck in the lptmr0 ISR.
 		LPTMR_DRV_ClearCompareFlag(INST_LPTMR1);
+		LPTMR_DRV_SetInterrupt(INST_LPTMR1, false); // Disable the timer interrupt to prevent possible nested interrupt.
 	}
 //	static uint8_t countTxDummy = 0; // count dummy texts that are transmitted when the uart tx buffer is accessed by the state-machine
 
@@ -105,6 +106,7 @@ void TogglePTD6 (void)
 		LPUART_DRV_SendDataBlocking(INST_LPUART0, &(uart_data.array[0]), sizeof(uart_data.array), 10);
 		PINS_DRV_TogglePins(PTD, 1<<5);
 	}
+	LPTMR_DRV_SetInterrupt(INST_LPTMR1, true); // Enable the interrupt again
 }
 
 // available TX sample rate range = 1222 ~ 1280
