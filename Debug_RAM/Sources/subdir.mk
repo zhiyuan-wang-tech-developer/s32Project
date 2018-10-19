@@ -17,23 +17,11 @@ C_SRCS += \
 ../Sources/main.c \
 ../Sources/systemRunFsm.c \
 
-OBJS_OS_FORMAT += \
-./Sources/adc.o \
-./Sources/dac.o \
-./Sources/main.o \
-./Sources/systemRunFsm.o \
-
 C_DEPS_QUOTED += \
 "./Sources/adc.d" \
 "./Sources/dac.d" \
 "./Sources/main.d" \
 "./Sources/systemRunFsm.d" \
-
-OBJS += \
-./Sources/adc.o \
-./Sources/dac.o \
-./Sources/main.o \
-./Sources/systemRunFsm.o \
 
 OBJS_QUOTED += \
 "./Sources/adc.o" \
@@ -46,6 +34,18 @@ C_DEPS += \
 ./Sources/dac.d \
 ./Sources/main.d \
 ./Sources/systemRunFsm.d \
+
+OBJS_OS_FORMAT += \
+./Sources/adc.o \
+./Sources/dac.o \
+./Sources/main.o \
+./Sources/systemRunFsm.o \
+
+OBJS += \
+./Sources/adc.o \
+./Sources/dac.o \
+./Sources/main.o \
+./Sources/systemRunFsm.o \
 
 
 # Each subdirectory must supply rules for building sources it contributes

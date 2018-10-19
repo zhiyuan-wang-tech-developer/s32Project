@@ -49,6 +49,15 @@ EXECUTABLES_QUOTED += \
 EXECUTABLES_OS_FORMAT += \
 AutoLivTest.elf \
 
+SECONDARY_FLASH += \
+AutoLivTest.srec \
+
+SECONDARY_FLASH_QUOTED += \
+"AutoLivTest.srec" \
+
+SECONDARY_FLASH_OS_FORMAT += \
+AutoLivTest.srec \
+
 SECONDARY_SIZE += \
 AutoLivTest.siz \
 
@@ -71,8 +80,15 @@ AutoLivTest.elf: $(OBJS) D:/AllRound/Project/AutoLivTest/Project_Settings/Linker
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-AutoLivTest.siz: $(EXECUTABLES)
+AutoLivTest.srec: $(EXECUTABLES)
 	@echo 'Executing target #38 $@'
+	@echo 'Invoking: Standard S32DS Create Flash Image'
+	arm-none-eabi-objcopy -O srec $(EXECUTABLES)  "AutoLivTest.srec"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+AutoLivTest.siz: $(EXECUTABLES)
+	@echo 'Executing target #39 $@'
 	@echo 'Invoking: Standard S32DS Print Size'
 	arm-none-eabi-size --format=sysv --totals $(EXECUTABLES)
 	@echo 'Finished building: $@'
@@ -80,10 +96,10 @@ AutoLivTest.siz: $(EXECUTABLES)
 
 # Other Targets
 clean:
-	-$(RM) ./*/*.d ./*/*/*/*.d ./*/*/*/*/*/*.d ./*/*/*/*/*/*/*.d  ./*/*.o ./*/*/*/*.o ./*/*/*/*/*/*.o ./*/*/*/*/*/*/*.o ./*/*/*.o  $(SECONDARY_SIZE_QUOTED) $(EXECUTABLES_QUOTED)
+	-$(RM) $(SECONDARY_FLASH_QUOTED) ./*/*.d ./*/*/*/*.d ./*/*/*/*/*/*.d ./*/*/*/*/*/*/*.d  ./*/*.o ./*/*/*/*.o ./*/*/*/*/*/*.o ./*/*/*/*/*/*/*.o ./*/*/*.o  $(SECONDARY_SIZE_QUOTED) $(EXECUTABLES_QUOTED)
 	-@echo ' '
 
-secondary-outputs: $(SECONDARY_SIZE)
+secondary-outputs: $(SECONDARY_FLASH) $(SECONDARY_SIZE)
 
 .PHONY: all clean dependents explicit-dependencies warning-messages
 .SECONDARY:
