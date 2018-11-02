@@ -100,12 +100,12 @@
       <File Name="SDK/platform/drivers/src/lpspi/lpspi_irq.c" FileDate="2018-10-15, 15:53:23" FileAge="1539611603214" FileType="1048576" CompNumb="0" />
       <File Name="Generated_Code/clockManager1.h" FileDate="2018-10-15, 15:53:23" FileAge="1539611603339" FileType="45637" CompNumb="10" />
       <File Name="SDK/platform/devices/devassert.h" FileDate="2018-10-09, 15:31:11" FileAge="1539091871472" FileType="1048576" CompNumb="6" />
-      <File Name="Generated_Code/clockManager1.c" FileDate="2018-10-16, 09:42:46" FileAge="1539675766726" FileType="45637" CompNumb="10" />
       <File Name="SDK/platform/devices/device_registers.h" FileDate="2018-10-09, 15:31:11" FileAge="1539091871472" FileType="1048576" CompNumb="6" />
-      <File Name="Sources/main.c" FileDate="2018-10-18, 16:18:09" FileAge="1539872289504" FileType="128" />
+      <File Name="Generated_Code/clockManager1.c" FileDate="2018-10-16, 09:42:46" FileAge="1539675766726" FileType="45637" CompNumb="10" />
+      <File Name="Sources/main.c" FileDate="2018-10-19, 10:15:20" FileAge="1539936920729" FileType="128" />
       <File Name="Generated_Code/pin_mux.h" FileDate="2018-10-17, 15:43:57" FileAge="1539783837943" FileType="45637" CompNumb="9" />
       <File Name="Generated_Code/pin_mux.c" FileDate="2018-10-17, 15:43:57" FileAge="1539783837959" FileType="45637" CompNumb="9" />
     </GeneratedByPE>
   </GeneratedFilesList>
-  <CodeGenReference>62</CodeGenReference>
+  <CodeGenReference>63</CodeGenReference>
 </CodeGenerationInfo>

@@ -3,7 +3,7 @@
   <Header>
     <Name>AutoLivTest</Name>
     <SavedBy>dynatron2018</SavedBy>
-    <ModificationStamp>30</ModificationStamp>
+    <ModificationStamp>31</ModificationStamp>
     <Date>2018-10-09</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.12.2.RT7_b1743-0713</PEversion>
@@ -29,7 +29,7 @@
     <UseExistingModules>true</UseExistingModules>
     <RenamePeripheries>false</RenamePeripheries>
     <Autodependency>true</Autodependency>
-    <ProjectCompNumb>34</ProjectCompNumb>
+    <ProjectCompNumb>35</ProjectCompNumb>
     <DelUnusedPreviouslyGenFiles>true</DelUnusedPreviouslyGenFiles>
     <GeneratedCodeFrozen>false</GeneratedCodeFrozen>
     <AssignInitComponentNameToPrph>true</AssignInitComponentNameToPrph>
@@ -1114,7 +1114,7 @@
       <Count>0</Count>
     </BoolList_FpgaConfig>
     <BoolList_BeanConfig>
-      <Count>12</Count>
+      <Count>13</Count>
       <ItemId0>6</ItemId0>
       <Value0>false</Value0>
       <ItemId1>8</ItemId1>
@@ -1139,6 +1139,8 @@
       <Value10>true</Value10>
       <ItemId11>33</ItemId11>
       <Value11>true</Value11>
+      <ItemId12>34</ItemId12>
+      <Value12>true</Value12>
     </BoolList_BeanConfig>
     <BoolList_TaskConfig>
       <Count>0</Count>
@@ -1213,7 +1215,7 @@
       <Count>0</Count>
     </BoolList_FpgaConfig>
     <BoolList_BeanConfig>
-      <Count>12</Count>
+      <Count>13</Count>
       <ItemId0>6</ItemId0>
       <Value0>false</Value0>
       <ItemId1>8</ItemId1>
@@ -1238,6 +1240,8 @@
       <Value10>true</Value10>
       <ItemId11>33</ItemId11>
       <Value11>true</Value11>
+      <ItemId12>34</ItemId12>
+      <Value12>true</Value12>
     </BoolList_BeanConfig>
     <BoolList_TaskConfig>
       <Count>0</Count>
@@ -1367,7 +1371,7 @@
         <ItemSymbol>PeripheralClocksCount0</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>13</Value>
+        <Value>14</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>PeripheralClocksGrp0</ItemSymbol>
@@ -1781,8 +1785,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>false</Value>
-        <Expanded>false</Expanded>
+        <Value>true</Value>
+        <Expanded>true</Expanded>
       </ItemState>
       <ItemState>
         <ItemSymbol>Peripheral0_CLOCK_NAME0</ItemSymbol>
@@ -4707,7 +4711,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>FTFC_0_CLOCK_GATE_0</ItemSymbol>
-        <Value>'off'</Value>
+        <Value>'on'</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>FTM_0_CLOCK_GATE_0</ItemSymbol>
@@ -4958,7 +4962,7 @@
         <ItemSymbol>ProjectComponentsCount</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>10</Value>
+        <Value>11</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>PeripheralMaxIdValue</ItemSymbol>
@@ -15602,6 +15606,519 @@
         <UserReadOnly>false</UserReadOnly>
       </ItemState>
     </Events>
+  </Bean>
+  <Bean>
+    <Repository>file:/${ProcessorExpert_loc}/../../S32DS/S32SDK_S32K14x_EAR_0.8.6/tools/pex/Repositories/SDK_S32K14x_09_Repository</Repository>
+    <ComponentUUID>com.freescale.processorexpert.ksdk.flash</ComponentUUID>
+    <BeanType>flash</BeanType>
+    <Name>Flash</Name>
+    <CompNumb>34</CompNumb>
+    <CompEnabled>true</CompEnabled>
+    <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
+    <IconName>FLASH_LDD</IconName>
+    <UserFolderName />
+    <Comment lines_count="0" />
+    <Template />
+    <BeanVersion>1.0.0</BeanVersion>
+    <LightErrorsIgnored>false</LightErrorsIgnored>
+    <Properties>
+      <ItemState>
+        <ItemSymbol>DeviceName</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value>Flash</Value>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>PrphDevice</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value>FTFC</Value>
+        <SharedPrphMode>false</SharedPrphMode>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>CompVersion</ItemSymbol>
+        <Value>S32K144_SDK01</Value>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>VersionSpecificItem</ItemSymbol>
+        <ListItemCount>1</ListItemCount>
+        <ItemsTypeState>Beans\flash\Items\S32K144_SDK01\flash_main.item</ItemsTypeState>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>Settings</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>PropertiesItem</ItemSymbol>
+        <ListItemCount>1</ListItemCount>
+        <ItemsTypeState>Beans\flash\Items\S32K144_SDK01\flash_properties.item</ItemsTypeState>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>Configuration_group</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Index>0</Index>
+        <Expanded>true</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ConfigurationList</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <ListItemCount>1</ListItemCount>
+        <UserReadOnly>false</UserReadOnly>
+        <Expanded>false</Expanded>
+        <ItemsTypeState>Beans\flash\Items\S32K144_SDK01\flash_flashCfg.item</ItemsTypeState>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>flashCfg0</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Index>0</Index>
+        <Expanded>true</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ConfigName0</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value>Flash_InitConfig0</Value>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>PFlashBlockBase0</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>0</Value>
+        <Base>HEX</Base>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>PFlashBlockSize0</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>524288</Value>
+        <Base>HEX</Base>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>DFlashBlockBase0</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>268435456</Value>
+        <Base>HEX</Base>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>EERAMBlockBase0</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>335544320</Value>
+        <Base>HEX</Base>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FlashCallbackName0</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value>NULL_CALLBACK</Value>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>LinkItem</ItemSymbol>
+        <ListItemCount>1</ListItemCount>
+        <ItemsTypeState>Beans\flash\Items\S32K144_SDK01\flash_links.item</ItemsTypeState>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>LinkGrp</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Expanded>true</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>Link1</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value>clockManager1</Value>
+      </ItemState>
+    </Properties>
+    <Methods>
+      <ItemState>
+        <ItemSymbol>SdkSpecificMethods</ItemSymbol>
+        <ListItemCount>1</ListItemCount>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>flash_FlashMethodsgroup</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_Init</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_Init</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_GetPFlashProtection</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_GetPFlashProtection</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_SetPFlashProtection</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_SetPFlashProtection</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_GetSecurityState</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_GetSecurityState</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_SecurityBypass</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_SecurityBypass</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_EraseAllBlock</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_EraseAllBlock</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_VerifyAllBlock</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_VerifyAllBlock</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_EraseSector</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_EraseSector</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_VerifySection</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_VerifySection</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_EraseSuspend</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_EraseSuspend</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_EraseResume</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_EraseResume</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_ReadOnce</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_ReadOnce</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_ProgramOnce</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_ProgramOnce</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_Program</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_Program</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_ProgramCheck</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_ProgramCheck</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_CheckSum</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_CheckSum</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_ProgramSection</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_ProgramSection</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_EraseBlock</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_EraseBlock</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_VerifyBlock</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_VerifyBlock</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_GetEERAMProtection</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_GetEERAMProtection</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_SetEERAMProtection</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_SetEERAMProtection</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_SetFlexRamFunction</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_SetFlexRamFunction</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_EEEWrite</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_EEEWrite</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_DEFlashPartition</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_DEFlashPartition</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_GetDFlashProtection</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_GetDFlashProtection</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_SetDFlashProtection</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_SetDFlashProtection</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_PFlashSwap</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_PFlashSwap</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_PFlashSwapCtl</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_PFlashSwapCtl</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_EraseAllBlockUnsecure</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_EraseAllBlockUnsecure</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_EnableCmdCompleteInterupt</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_EnableCmdCompleteInterupt</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_DisableCmdCompleteInterupt</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_DisableCmdCompleteInterupt</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_GetCmdCompleteFlag</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_GetCmdCompleteFlag</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_EnableReadColisionInterupt</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_EnableReadColisionInterupt</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_DisableReadColisionInterupt</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_DisableReadColisionInterupt</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_GetReadColisionFlag</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_GetReadColisionFlag</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_ClearReadColisionFlag</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_ClearReadColisionFlag</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_EnableDoubleBitFaultInterupt</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_EnableDoubleBitFaultInterupt</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_DisableDoubleBitFaultInterupt</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_DisableDoubleBitFaultInterupt</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_GetDoubleBitFaultFlag</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_GetDoubleBitFaultFlag</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_ClearDoubleBitFaultFlag</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_ClearDoubleBitFaultFlag</UsrMethodName>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>FLASH_DRV_ForceDoubleBitFaultDetectCmd</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>0</Index>
+        <Value>true</Value>
+        <LastSelection>true</LastSelection>
+        <LastUserSel>always</LastUserSel>
+        <UsrMethodName>FLASH_DRV_ForceDoubleBitFaultDetectCmd</UsrMethodName>
+      </ItemState>
+    </Methods>
+    <Events />
   </Bean>
   <ComponentInitializationSequence>
     <EmptySection_DummyValue />
