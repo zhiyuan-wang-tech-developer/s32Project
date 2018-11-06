@@ -44,7 +44,7 @@ OBJS += \
 # Each subdirectory must supply rules for building sources it contributes
 SDK/platform/drivers/src/lpuart/lpuart_driver.o: ../SDK/platform/drivers/src/lpuart/lpuart_driver.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #27 $<'
+	@echo 'Executing target #34 $<'
 	@echo 'Invoking: Standard S32DS C Compiler'
 	arm-none-eabi-gcc "@SDK/platform/drivers/src/lpuart/lpuart_driver.args" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "SDK/platform/drivers/src/lpuart/lpuart_driver.o" "$<"
 	@echo 'Finished building: $<'
@@ -52,7 +52,7 @@ SDK/platform/drivers/src/lpuart/lpuart_driver.o: ../SDK/platform/drivers/src/lpu
 
 SDK/platform/drivers/src/lpuart/lpuart_hw_access.o: ../SDK/platform/drivers/src/lpuart/lpuart_hw_access.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #28 $<'
+	@echo 'Executing target #35 $<'
 	@echo 'Invoking: Standard S32DS C Compiler'
 	arm-none-eabi-gcc "@SDK/platform/drivers/src/lpuart/lpuart_hw_access.args" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "SDK/platform/drivers/src/lpuart/lpuart_hw_access.o" "$<"
 	@echo 'Finished building: $<'
@@ -60,7 +60,7 @@ SDK/platform/drivers/src/lpuart/lpuart_hw_access.o: ../SDK/platform/drivers/src/
 
 SDK/platform/drivers/src/lpuart/lpuart_irq.o: ../SDK/platform/drivers/src/lpuart/lpuart_irq.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #29 $<'
+	@echo 'Executing target #36 $<'
 	@echo 'Invoking: Standard S32DS C Compiler'
 	arm-none-eabi-gcc "@SDK/platform/drivers/src/lpuart/lpuart_irq.args" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "SDK/platform/drivers/src/lpuart/lpuart_irq.o" "$<"
 	@echo 'Finished building: $<'

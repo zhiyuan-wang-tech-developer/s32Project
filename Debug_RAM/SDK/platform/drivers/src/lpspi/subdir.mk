@@ -58,7 +58,7 @@ OBJS += \
 # Each subdirectory must supply rules for building sources it contributes
 SDK/platform/drivers/src/lpspi/lpspi_hw_access.o: ../SDK/platform/drivers/src/lpspi/lpspi_hw_access.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #20 $<'
+	@echo 'Executing target #27 $<'
 	@echo 'Invoking: Standard S32DS C Compiler'
 	arm-none-eabi-gcc "@SDK/platform/drivers/src/lpspi/lpspi_hw_access.args" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "SDK/platform/drivers/src/lpspi/lpspi_hw_access.o" "$<"
 	@echo 'Finished building: $<'
@@ -66,7 +66,7 @@ SDK/platform/drivers/src/lpspi/lpspi_hw_access.o: ../SDK/platform/drivers/src/lp
 
 SDK/platform/drivers/src/lpspi/lpspi_irq.o: ../SDK/platform/drivers/src/lpspi/lpspi_irq.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #21 $<'
+	@echo 'Executing target #28 $<'
 	@echo 'Invoking: Standard S32DS C Compiler'
 	arm-none-eabi-gcc "@SDK/platform/drivers/src/lpspi/lpspi_irq.args" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "SDK/platform/drivers/src/lpspi/lpspi_irq.o" "$<"
 	@echo 'Finished building: $<'
@@ -74,7 +74,7 @@ SDK/platform/drivers/src/lpspi/lpspi_irq.o: ../SDK/platform/drivers/src/lpspi/lp
 
 SDK/platform/drivers/src/lpspi/lpspi_master_driver.o: ../SDK/platform/drivers/src/lpspi/lpspi_master_driver.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #22 $<'
+	@echo 'Executing target #29 $<'
 	@echo 'Invoking: Standard S32DS C Compiler'
 	arm-none-eabi-gcc "@SDK/platform/drivers/src/lpspi/lpspi_master_driver.args" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "SDK/platform/drivers/src/lpspi/lpspi_master_driver.o" "$<"
 	@echo 'Finished building: $<'
@@ -82,7 +82,7 @@ SDK/platform/drivers/src/lpspi/lpspi_master_driver.o: ../SDK/platform/drivers/sr
 
 SDK/platform/drivers/src/lpspi/lpspi_shared_function.o: ../SDK/platform/drivers/src/lpspi/lpspi_shared_function.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #23 $<'
+	@echo 'Executing target #30 $<'
 	@echo 'Invoking: Standard S32DS C Compiler'
 	arm-none-eabi-gcc "@SDK/platform/drivers/src/lpspi/lpspi_shared_function.args" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "SDK/platform/drivers/src/lpspi/lpspi_shared_function.o" "$<"
 	@echo 'Finished building: $<'
@@ -90,7 +90,7 @@ SDK/platform/drivers/src/lpspi/lpspi_shared_function.o: ../SDK/platform/drivers/
 
 SDK/platform/drivers/src/lpspi/lpspi_slave_driver.o: ../SDK/platform/drivers/src/lpspi/lpspi_slave_driver.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #24 $<'
+	@echo 'Executing target #31 $<'
 	@echo 'Invoking: Standard S32DS C Compiler'
 	arm-none-eabi-gcc "@SDK/platform/drivers/src/lpspi/lpspi_slave_driver.args" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "SDK/platform/drivers/src/lpspi/lpspi_slave_driver.o" "$<"
 	@echo 'Finished building: $<'

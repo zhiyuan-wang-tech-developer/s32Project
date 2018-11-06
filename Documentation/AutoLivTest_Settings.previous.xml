@@ -132,10 +132,10 @@
       <EmptySection_DummyValue />
     </Events>
   </Bean>
-  <Bean name="lpuart1" type="lpuart">
+  <Bean name="lpuart0" type="lpuart">
     <Enabled v="Y" />
     <Properties>
-      <Component_name v="lpuart1" />
+      <Component_name v="lpuart0" />
       <Device v="LPUART0" />
       <Component_version v="S32K144_SDK01" />
     </Properties>
@@ -192,6 +192,34 @@
     <Properties>
       <Component_name v="lpspi2_dac" />
       <Device v="LPSPI2" />
+      <Component_version v="S32K144_SDK01" />
+    </Properties>
+    <Methods>
+      <EmptySection_DummyValue />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
+  <Bean name="Flash" type="flash">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="Flash" />
+      <Device v="FTFC" />
+      <Component_version v="S32K144_SDK01" />
+    </Properties>
+    <Methods>
+      <EmptySection_DummyValue />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
+  <Bean name="lpspi1_can" type="lpspi">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="lpspi1_can" />
+      <Device v="LPSPI1" />
       <Component_version v="S32K144_SDK01" />
     </Properties>
     <Methods>

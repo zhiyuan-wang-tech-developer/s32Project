@@ -30,6 +30,7 @@
 #include "systemRunFsm.h"
 #include "adc.h"
 #include "dac.h"
+#include "can_bus.h"
 
 volatile int exit_code = 0;
 
@@ -38,7 +39,7 @@ volatile int exit_code = 0;
 //uint32_t countTxSample = 0;
 //uint32_t countTxSamplePerSec = 0;
 
-const uint8_t uartText[9] = "allround\n";
+//const uint8_t uartText[9] = "allround\n";
 uint8_t uartTxBuffer[9] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09};
 //uint8_t uartTxBuffer[9] = {'\0'};
 
@@ -56,6 +57,11 @@ void TogglePTD5 (void)
 		uart_sync ^= 0x80;		/* Toggle uart_sync MSB bit */
 	}
 	sec_counter++;
+
+	if( !CAN_TimeToTransmit )
+	{
+		CAN_TimeToTransmit = true;
+	}
 //	countTxSamplePerSec = countTxSample;
 //	countTxSample = 0;
 //	printf("Tx Sample Rate: %lu\n", countTxSamplePerSec);
@@ -147,13 +153,13 @@ int main(void)
 
     if( CLOCK_DRV_Init(&clockManager1_InitConfig0) != STATUS_SUCCESS )
 	{
-    	printf("Error\n");
+//    	printf("Error\n");
     	return exit_code;
 	}
 
     if( PINS_DRV_Init(NUM_OF_CONFIGURED_PINS, g_pin_mux_InitConfigArr) != STATUS_SUCCESS )
     {
-    	printf("Error\n");
+//    	printf("Error\n");
     }
 
     INT_SYS_InstallHandler(LPTMR0_IRQn, TogglePTD6, (isr_t *) NULL);
@@ -200,7 +206,7 @@ int main(void)
 
    if( LPUART_DRV_Init(INST_LPUART0, &lpuart0_State, &lpuart0_InitConfig0) != STATUS_SUCCESS )
    {
-	   printf("Error\n");
+//	   printf("Error\n");
    }
 //   INT_SYS_SetPriority(LPUART0_RxTx_IRQn, 8);
 //   INT_SYS_ClearPending(LPUART0_RxTx_IRQn);
@@ -211,11 +217,14 @@ int main(void)
    LPSPI2_init();						/* Initialize the LPSPI2 for DAC */
    set_DAC(dac_val_16, true);			/* Set the initial DAC output */
    ADC_init();							/* Configure the ADC */
+
+   CAN_communication_init();
    /* For example: for(;;) { } */
 
    for(;;)
    {
-	   fsm_task_run();
+//	   fsm_task_run();
+	   CAN_transceiver_run();
 //	  PINS_DRV_TogglePins(PTE, 1<<8);
 //	  PINS_DRV_TogglePins(PTD, 1<<6);
 //	  PINS_DRV_TogglePins(PTD, 1<<5);

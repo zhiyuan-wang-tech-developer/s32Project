@@ -41,12 +41,18 @@ Generated_Code/lpspi2_dac.o: ../Generated_Code/lpspi2_dac.c \
  C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/clock_manager.h \
  C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/lpspi_slave_driver.h \
  C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/lpspi_shared_function.h \
+ C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/flash_driver.h \
+ D:/AllRound/Project/AutoLivTest/SDK/platform/pal/can/inc/can_pal.h \
+ D:/AllRound/Project/AutoLivTest/Generated_Code/can_pal_cfg.h \
+ D:/AllRound/Project/AutoLivTest/SDK/platform/pal/can/inc/can_pal_mapping.h \
+ C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/flexcan_driver.h \
  C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/startup/system_S32K144.h \
  ../Generated_Code/pin_mux.h \
  C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/pins_driver.h \
  ../Generated_Code/lpTmr1.h ../Generated_Code/lpit1.h \
  ../Generated_Code/lpuart0.h ../Generated_Code/dmaController1.h \
- ../Generated_Code/lpspi0_adc.h
+ ../Generated_Code/lpspi0_adc.h ../Generated_Code/Flash.h \
+ ../Generated_Code/lpspi1_can.h ../Generated_Code/can_pal0.h
 
 C:/NXP/S32DS_ARM_v2018.R1/S32DS/arm_ewl2/EWL_C/include/lib_c99.prefix:
 
@@ -134,6 +140,16 @@ C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/lp
 
 C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/lpspi_shared_function.h:
 
+C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/flash_driver.h:
+
+D:/AllRound/Project/AutoLivTest/SDK/platform/pal/can/inc/can_pal.h:
+
+D:/AllRound/Project/AutoLivTest/Generated_Code/can_pal_cfg.h:
+
+D:/AllRound/Project/AutoLivTest/SDK/platform/pal/can/inc/can_pal_mapping.h:
+
+C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/flexcan_driver.h:
+
 C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/devices/S32K144/startup/system_S32K144.h:
 
 ../Generated_Code/pin_mux.h:
@@ -149,3 +165,9 @@ C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/pi
 ../Generated_Code/dmaController1.h:
 
 ../Generated_Code/lpspi0_adc.h:
+
+../Generated_Code/Flash.h:
+
+../Generated_Code/lpspi1_can.h:
+
+../Generated_Code/can_pal0.h:

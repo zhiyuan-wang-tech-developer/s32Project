@@ -7,7 +7,7 @@
 **     Version     : Component 01.197, Driver 01.00, CPU db: 3.00.000
 **     Datasheet   : S32K14XRM Rev. 2, 02/2017
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-10-17, 15:13, # CodeGen: 50
+**     Date/Time   : 2018-11-06, 13:12, # CodeGen: 65
 **     Abstract    :
 **
 **     Settings    :
@@ -66,6 +66,8 @@
 #include "lpspi_master_driver.h"
 #include "lpspi_slave_driver.h"
 #include "lpspi_shared_function.h"
+#include "flash_driver.h"
+#include "can_pal.h"
 #include "system_S32K144.h"
 
 /* Including needed modules to compile this module/procedure */
@@ -77,6 +79,9 @@
 #include "dmaController1.h"
 #include "lpspi0_adc.h"
 #include "lpspi2_dac.h"
+#include "Flash.h"
+#include "lpspi1_can.h"
+#include "can_pal0.h"
 
 #ifdef __cplusplus
 extern "C" {

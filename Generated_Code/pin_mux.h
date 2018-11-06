@@ -7,7 +7,7 @@
 **     Version     : Component 1.2.0, Driver 1.4, CPU db: 3.00.000
 **     Repository  : SDK_S32K14x_09
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-10-17, 15:43, # CodeGen: 56
+**     Date/Time   : 2018-11-05, 17:13, # CodeGen: 63
 **     Abstract    :
 **
 **     Settings    :
@@ -53,8 +53,8 @@
 **              Peripheral Type CAN                        : 
 **                Custom name                              : CAN0
 **                CAN0                                     : 
-**                  Receiver Input                         : <Automatic>
-**                  Transmitter Output                     : <Automatic>
+**                  Receiver Input                         : PTE4
+**                  Transmitter Output                     : PTE5
 **                Custom name                              : CAN1
 **                CAN1                                     : 
 **                  Receiver Input                         : <Automatic>
@@ -361,14 +361,14 @@
 **                LPSPI1                                   : 
 **                  Peripheral Chip Select 0               : <Automatic>
 **                  Direction                              : <Automatic>
-**                  Peripheral Chip Select 1               : <Automatic>
-**                  Direction                              : <Automatic>
-**                  Serial Clock                           : <Automatic>
-**                  Direction                              : <Automatic>
-**                  Serial Data Input                      : <Automatic>
-**                  Direction                              : <Automatic>
-**                  Serial Data Output                     : <Automatic>
-**                  Direction                              : <Automatic>
+**                  Peripheral Chip Select 1               : PTA6
+**                  Direction                              : Output
+**                  Serial Clock                           : PTD0
+**                  Direction                              : Output
+**                  Serial Data Input                      : PTD1
+**                  Direction                              : Input
+**                  Serial Data Output                     : PTD2
+**                  Direction                              : Output
 **                Custom name                              : LPSPI2
 **                LPSPI2                                   : 
 **                  Peripheral Chip Select 0               : PTC14

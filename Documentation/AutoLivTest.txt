@@ -229,6 +229,82 @@ Module "lpspi2_dac" (component lpspi)
    - lpspi2_dac_LPSPI_DRV_SlaveAbortTransfer -Aborts the transfer that started by a non-blocking call transfer function.
    - lpspi2_dac_LPSPI_DRV_SlaveGetTransferStatus -Returns whether the previous transfer is finished.
 
+Module "Flash"     (component flash)
+   - Flash_FLASH_DRV_Init -Flash initialization.
+   - Flash_FLASH_DRV_GetPFlashProtection -P-Flash get protection.
+   - Flash_FLASH_DRV_SetPFlashProtection -P-Flash set protection.
+   - Flash_FLASH_DRV_GetSecurityState -Flash get security state.
+   - Flash_FLASH_DRV_SecurityBypass -Flash security bypass.
+   - Flash_FLASH_DRV_EraseAllBlock -Flash erase all Blocks.
+   - Flash_FLASH_DRV_VerifyAllBlock -Flash verify all Blocks.
+   - Flash_FLASH_DRV_EraseSector -Flash erase sector.
+   - Flash_FLASH_DRV_VerifySection -Flash verify sector.
+   - Flash_FLASH_DRV_EraseSuspend -Flash erase suspend.
+   - Flash_FLASH_DRV_EraseResume -Flash erase resume.
+   - Flash_FLASH_DRV_ReadOnce -Flash read once.
+   - Flash_FLASH_DRV_ProgramOnce -Flash program once.
+   - Flash_FLASH_DRV_Program -Flash program.
+   - Flash_FLASH_DRV_ProgramCheck -Flash program check.
+   - Flash_FLASH_DRV_CheckSum -Calculate check sum.
+   - Flash_FLASH_DRV_ProgramSection -Flash program section.
+   - Flash_FLASH_DRV_EraseBlock -Flash erase block.
+   - Flash_FLASH_DRV_VerifyBlock -Flash verify block.
+   - Flash_FLASH_DRV_GetEERAMProtection -EERAM get protection.
+   - Flash_FLASH_DRV_SetEERAMProtection -EERAM set protection.
+   - Flash_FLASH_DRV_SetFlexRamFunction -Flash Set FlexRam function command.
+   - Flash_FLASH_DRV_EEEWrite -EEPROM Emulator Write.
+   - Flash_FLASH_DRV_DEFlashPartition -Flash D/E-Flash Partition.
+   - Flash_FLASH_DRV_GetDFlashProtection -D-Flash get protection.
+   - Flash_FLASH_DRV_SetDFlashProtection -D-Flash set protection.
+   - Flash_FLASH_DRV_PFlashSwap -swap between the two half of total logical P-Flash memory blocks within the memory map
+   - Flash_FLASH_DRV_PFlashSwapCtl -implements swap control command corresponding with swap control code provided via swapcmd 
+                parameter
+   - Flash_FLASH_DRV_EraseAllBlockUnsecure -Flash erase all Blocks.
+   - Flash_FLASH_DRV_EnableCmdCompleteInterupt -Enable the command complete interrupt.
+   - Flash_FLASH_DRV_DisableCmdCompleteInterupt -Disable the command complete interrupt.
+   - Flash_FLASH_DRV_GetCmdCompleteFlag -Check the command complete flag has completed or not.
+   - Flash_FLASH_DRV_EnableReadColisionInterupt -Enable the read collision error interrupt.
+   - Flash_FLASH_DRV_DisableReadColisionInterupt -Disable the read collision error interrupt.
+   - Flash_FLASH_DRV_GetReadColisionFlag -Check the read collision error flag is detected or not.
+   - Flash_FLASH_DRV_ClearReadColisionFlag -Clear the read collision error flag.
+   - Flash_FLASH_DRV_EnableDoubleBitFaultInterupt -Enable the double bit fault detect interrupt.
+   - Flash_FLASH_DRV_DisableDoubleBitFaultInterupt -Disable the double bit fault detect interrupt.
+   - Flash_FLASH_DRV_GetDoubleBitFaultFlag -Check the double bit fault flag is detected or not.
+   - Flash_FLASH_DRV_ClearDoubleBitFaultFlag -Clear the double bit fault detect flag.
+   - Flash_FLASH_DRV_ForceDoubleBitFaultDetectCmd -Force Double Bit Fault Detect.
+
+Module "lpspi1_can" (component lpspi)
+   - lpspi1_can_LPSPI_DRV_MasterInit -Initializes a LPSPI instance for interrupt driven master mode operation.
+   - lpspi1_can_LPSPI_DRV_MasterDeinit -Shuts down a LPSPI instance.
+   - lpspi1_can_LPSPI_DRV_MasterSetDelay -Configures the LPSPI master mode bus timing delay options.
+   - lpspi1_can_LPSPI_DRV_MasterConfigureBus -Configures the LPSPI port physical parameters to access a device on the bus when 
+                the LSPI instance is configured for interrupt operation.
+   - lpspi1_can_LPSPI_DRV_MasterTransferBlocking -Performs an interrupt driven blocking SPI master mode transfer.
+   - lpspi1_can_LPSPI_DRV_MasterTransfer -Performs an interrupt driven non-blocking SPI master mode transfer.
+   - lpspi1_can_LPSPI_DRV_MasterGetTransferStatus -Returns whether the previous interrupt driven transfer is completed.
+   - lpspi1_can_LPSPI_DRV_MasterAbortTransfer -Terminates an interrupt driven asynchronous transfer early.
+   - lpspi1_can_LPSPI_DRV_SlaveInit -Initializes a LPSPI instance for a slave mode operation, using interrupt mechanism.
+   - lpspi1_can_LPSPI_DRV_SlaveDeinit -Shuts down an LPSPI instance interrupt mechanism.
+   - lpspi1_can_LPSPI_DRV_SlaveTransferBlocking -Transfers data on LPSPI bus using interrupt and a blocking call.
+   - lpspi1_can_LPSPI_DRV_SlaveTransfer -Starts the transfer data on LPSPI bus using an interrupt and a non-blocking call.
+   - lpspi1_can_LPSPI_DRV_SlaveAbortTransfer -Aborts the transfer that started by a non-blocking call transfer function.
+   - lpspi1_can_LPSPI_DRV_SlaveGetTransferStatus -Returns whether the previous transfer is finished.
+
+Module "can_pal0"  (component can_pal)
+   - can_pal0_CAN_Init -Initializes the CAN module.
+   - can_pal0_CAN_Deinit -De-initializes the CAN module.
+   - can_pal0_CAN_SetBitrate -Configures the CAN bitrate.
+   - can_pal0_CAN_GetBitrate -Returns the CAN bitrate.
+   - can_pal0_CAN_ConfigTxBuff -Configures a buffer for transmission.
+   - can_pal0_CAN_ConfigRxBuff -Configures a buffer for reception.
+   - can_pal0_CAN_Send -Sends a CAN frame using the specified buffer.
+   - can_pal0_CAN_SendBlocking -Sends a CAN frame using the specified buffer, in a blocking manner.
+   - can_pal0_CAN_Receive -Receives a CAN frame using the specified message buffer.
+   - can_pal0_CAN_ReceiveBlocking -Receives a CAN frame using the specified buffer, in a blocking manner.
+   - can_pal0_CAN_SetRxFilter -Configures an ID filter for a specific reception buffer.
+   - can_pal0_CAN_GetTransferStatus -Returns the state of the previous CAN transfer.
+   - can_pal0_CAN_InstallEventCallback -Installs a callback function for the IRQ handler.
+
 Module "Cpu"       (component S32K144_64)
    - Cpu_SystemInit -This function disables the watchdog, enables FPU and the power mode protection. SystemInit is called from 
                 startup_device file.

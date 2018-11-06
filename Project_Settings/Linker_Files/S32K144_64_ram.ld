@@ -38,13 +38,18 @@ STACK_SIZE = DEFINED(__stack_size__) ? __stack_size__ : 0x00000400;
 MEMORY
 {
   /* SRAM_L */
-  m_interrupts          (RX)  : ORIGIN = 0x1FFF8000, LENGTH = 0x00000400
+	m_interrupts          (RX)  : ORIGIN = 0x1FFF8000, LENGTH = 0x00000400
+	m_text                (RX)  : ORIGIN = 0x1FFF8400, LENGTH = 0x0000CC00
+	m_data                (RW)  : ORIGIN = 0x20005000, LENGTH = 0x00002000
+	
+/*  m_interrupts          (RX)  : ORIGIN = 0x1FFF8000, LENGTH = 0x00000400
 /*  m_text                (RX)  : ORIGIN = 0x1FFF8400, LENGTH = 0x00007C00 */ 
-	m_text                (RX)  : ORIGIN = 0x1FFF8400, LENGTH = 0x0000AC00  /* assign 44032 bytes for m_text */
+/*	m_text                (RX)  : ORIGIN = 0x1FFF8400, LENGTH = 0x0000AC00  /* assign 44032 bytes for m_text */
 
   /* SRAM_U */
 /*  m_data                (RW)  : ORIGIN = 0x20000000, LENGTH = 0x00007000 */
-	m_data                (RW)  : ORIGIN = 0x20003000, LENGTH = 0x00004000  /* assign 16384 bytes for the m_data section */
+/*	m_data                (RW)  : ORIGIN = 0x20003000, LENGTH = 0x00004000  /* assign 16384 bytes for the m_data section */
+
 }
 
 /* Define output sections */
