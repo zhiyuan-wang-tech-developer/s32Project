@@ -11,6 +11,7 @@ C_SRCS_QUOTED += \
 "../Sources/dac.c" \
 "../Sources/main.c" \
 "../Sources/systemRunFsm.c" \
+"../Sources/system_basis_chip_TLE9261.c" \
 
 C_SRCS += \
 ../Sources/adc.c \
@@ -18,6 +19,7 @@ C_SRCS += \
 ../Sources/dac.c \
 ../Sources/main.c \
 ../Sources/systemRunFsm.c \
+../Sources/system_basis_chip_TLE9261.c \
 
 C_DEPS_QUOTED += \
 "./Sources/adc.d" \
@@ -25,6 +27,7 @@ C_DEPS_QUOTED += \
 "./Sources/dac.d" \
 "./Sources/main.d" \
 "./Sources/systemRunFsm.d" \
+"./Sources/system_basis_chip_TLE9261.d" \
 
 OBJS_QUOTED += \
 "./Sources/adc.o" \
@@ -32,6 +35,7 @@ OBJS_QUOTED += \
 "./Sources/dac.o" \
 "./Sources/main.o" \
 "./Sources/systemRunFsm.o" \
+"./Sources/system_basis_chip_TLE9261.o" \
 
 C_DEPS += \
 ./Sources/adc.d \
@@ -39,6 +43,7 @@ C_DEPS += \
 ./Sources/dac.d \
 ./Sources/main.d \
 ./Sources/systemRunFsm.d \
+./Sources/system_basis_chip_TLE9261.d \
 
 OBJS_OS_FORMAT += \
 ./Sources/adc.o \
@@ -46,6 +51,7 @@ OBJS_OS_FORMAT += \
 ./Sources/dac.o \
 ./Sources/main.o \
 ./Sources/systemRunFsm.o \
+./Sources/system_basis_chip_TLE9261.o \
 
 OBJS += \
 ./Sources/adc.o \
@@ -53,6 +59,7 @@ OBJS += \
 ./Sources/dac.o \
 ./Sources/main.o \
 ./Sources/systemRunFsm.o \
+./Sources/system_basis_chip_TLE9261.o \
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -93,6 +100,14 @@ Sources/systemRunFsm.o: ../Sources/systemRunFsm.c
 	@echo 'Executing target #45 $<'
 	@echo 'Invoking: Standard S32DS C Compiler'
 	arm-none-eabi-gcc "@Sources/systemRunFsm.args" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "Sources/systemRunFsm.o" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+Sources/system_basis_chip_TLE9261.o: ../Sources/system_basis_chip_TLE9261.c
+	@echo 'Building file: $<'
+	@echo 'Executing target #46 $<'
+	@echo 'Invoking: Standard S32DS C Compiler'
+	arm-none-eabi-gcc "@Sources/system_basis_chip_TLE9261.args" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "Sources/system_basis_chip_TLE9261.o" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

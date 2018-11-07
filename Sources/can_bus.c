@@ -29,7 +29,7 @@ static const can_buff_config_t can_buffer_configure =
 /*
  * The standard CAN ID has 11 bits with the range from 0x000 to 0x7FF.
  */
-const uint32_t can_message_ID = CAN_MESSAGE_ID; // for easy observation on oscilloscope
+const uint32_t can_message_ID = 0x555;//CAN_MESSAGE_ID; // for easy observation on oscilloscope
 
 can_message_t  rx_message =
 	{
@@ -88,15 +88,22 @@ bool CAN_communication_init(void)
 		return false;
 	}
 
+	/* Set CAN Message Buffer Interrupt Priority */
 	INT_SYS_SetPriority(CAN0_ORed_0_15_MB_IRQn, 10);
-	CAN_InstallEventCallback(INST_CAN_PAL0, CAN_TX_RX_Callback, NULL);
+
+	/* Configure the interrupt callback */
+	can_status = CAN_InstallEventCallback(INST_CAN_PAL0, CAN_TX_RX_Callback, NULL);
+	if( can_status != STATUS_SUCCESS )
+	{
+		return false;
+	}
 	return true;
 }
 
 /*
  * @brief: The CAN transmitter + receiver state machine
  * 			If a CAN message is received, the message will be printed on console.
- * 			Every 1 sec, a CAN dummy message will be sent out to CAN bus.
+ * 			Every 1 second, a CAN dummy message will be sent out to CAN bus.
  */
 void CAN_transceiver_run(void)
 {
@@ -114,26 +121,30 @@ void CAN_transceiver_run(void)
 		case CAN_WAIT:
 			if( CAN_TimeToTransmit )
 			{
+				CAN_TimeToTransmit = false;
 				can_transceiver_status = CAN_TRANSMIT;
 			}
-
-			if( CAN_TimeToProcessRxMsg )
+			else if( CAN_TimeToProcessRxMsg )
 			{
+				CAN_TimeToProcessRxMsg = false;
 				can_transceiver_status = CAN_PROCESS_RX_MSG;
 			}
-
-			can_status = CAN_GetTransferStatus(INST_CAN_PAL0, CAN_RX_BUFFER_INDEX);
-			if( can_status == STATUS_SUCCESS )
+			else
 			{
-				can_transceiver_status = CAN_RECEIVE;
+				can_status = CAN_GetTransferStatus(INST_CAN_PAL0, CAN_RX_BUFFER_INDEX);
+				if( can_status == STATUS_SUCCESS )
+				{
+					can_transceiver_status = CAN_RECEIVE;
+				}
+				else
+				{
+					can_transceiver_status = CAN_WAIT;
+				}
 			}
-
-			can_transceiver_status = CAN_WAIT;
 			break;
 
 		case CAN_TRANSMIT:
 			CAN_Send(INST_CAN_PAL0, CAN_TX_BUFFER_INDEX, &tx_message);
-			CAN_TimeToTransmit = false;
 			can_transceiver_status = CAN_WAIT;
 			break;
 
@@ -144,8 +155,6 @@ void CAN_transceiver_run(void)
 
 		case CAN_PROCESS_RX_MSG:
 			printf("RX: A CAN MSG\r\n");
-
-			CAN_TimeToProcessRxMsg = false;
 			can_transceiver_status = CAN_WAIT;
 			break;
 
@@ -155,11 +164,18 @@ void CAN_transceiver_run(void)
 	}
 }
 
+/*
+ * Every time when a CAN message buffer TX complete or RX complete interrupt occurs,
+ * this callback function is invoked.
+ */
 void CAN_TX_RX_Callback(uint32_t can_instance, can_event_t can_event_type, uint32_t msg_buffer_index, void* can_state)
 {
 	if(can_event_type == CAN_EVENT_RX_COMPLETE)
 	{
-		CAN_TimeToProcessRxMsg = true;
+		if( !CAN_TimeToProcessRxMsg )
+		{
+			CAN_TimeToProcessRxMsg = true;
+		}
 	}
 }
 

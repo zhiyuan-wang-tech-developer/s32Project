@@ -1,3 +1,4 @@
+"./Sources/system_basis_chip_TLE9261.o"
 "./Sources/systemRunFsm.o"
 "./Sources/main.o"
 "./Sources/dac.o"
