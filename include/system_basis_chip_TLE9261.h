@@ -34,4 +34,7 @@ typedef union
 	} field;
 } SBC_STATUS_WORD_t;
 
+// Public function
+bool SBC_Init(void);
+
 #endif /* SYSTEM_BASIS_CHIP_TLE9261_H_ */

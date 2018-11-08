@@ -484,7 +484,6 @@
 						</toolChain>
 					</folderInfo>
 					<fileInfo id="com.freescale.s32ds.cross.gnu.arm.cortexm.exe.release.1201891517.Project_Settings/Debugger/AutoLivTest_Debug_RAM.launch" name="AutoLivTest_Debug_RAM.launch" rcbsApplicability="disable" resourcePath="Project_Settings/Debugger/AutoLivTest_Debug_RAM.launch" toolsToInvoke=""/>
-					<fileInfo id="com.freescale.s32ds.cross.gnu.arm.cortexm.exe.release.1201891517.Project_Settings/Debugger/AutoLivTest_Debug.launch" name="AutoLivTest_Debug.launch" rcbsApplicability="disable" resourcePath="Project_Settings/Debugger/AutoLivTest_Debug.launch" toolsToInvoke=""/>
 					<fileInfo id="com.freescale.s32ds.cross.gnu.arm.cortexm.exe.release.1201891517.Project_Settings/Linker_Files" name="Linker_Files" rcbsApplicability="disable" resourcePath="Project_Settings/Linker_Files" toolsToInvoke=""/>
 					<sourceEntries>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Generated_Code"/>
@@ -736,7 +735,6 @@
 							<tool id="com.freescale.s32ds.cross.gnu.disassembler.1031447050" name="Standard S32DS Disassembler" superClass="com.freescale.s32ds.cross.gnu.disassembler"/>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="com.freescale.s32ds.cross.gnu.arm.cortexm.exe.Debug_RAM.Project_Settings/Debugger/AutoLivTest_Debug.launch" name="AutoLivTest_Debug.launch" rcbsApplicability="disable" resourcePath="Project_Settings/Debugger/AutoLivTest_Debug.launch" toolsToInvoke=""/>
 					<fileInfo id="com.freescale.s32ds.cross.gnu.arm.cortexm.exe.Debug_RAM.Project_Settings/Debugger/AutoLivTest_Release.launch" name="AutoLivTest_Release.launch" rcbsApplicability="disable" resourcePath="Project_Settings/Debugger/AutoLivTest_Release.launch" toolsToInvoke=""/>
 					<fileInfo id="com.freescale.s32ds.cross.gnu.arm.cortexm.exe.Debug_RAM.Project_Settings/Linker_Files" name="Linker_Files" rcbsApplicability="disable" resourcePath="Project_Settings/Linker_Files" toolsToInvoke=""/>
 					<sourceEntries>

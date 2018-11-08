@@ -6,6 +6,8 @@
 <stringAttribute key="com.pemicro.debug.gdbjtag.pne.PE.GDB_OPTIONS" value=""/>
 <intAttribute key="com.pemicro.debug.gdbjtag.pne.PE.HARDWARE_INTERFACE" value="0"/>
 <stringAttribute key="com.pemicro.debug.gdbjtag.pne.PE.LAST_ATTRIBUTE_HEADER" value="com.pemicro.debug.gdbjtag.pne.ml."/>
+<booleanAttribute key="com.pemicro.debug.gdbjtag.pne.PE.STREAMING_ENABLE_PORT1" value="true"/>
+<stringAttribute key="com.pemicro.debug.gdbjtag.pne.PE.STREAMING_SERVER_PORT1" value="8080"/>
 <booleanAttribute key="com.pemicro.debug.gdbjtag.pne.PE.USE_EXTERNAL_SERVER" value="true"/>
 <intAttribute key="com.pemicro.debug.gdbjtag.pne.algorithmIndex" value="0"/>
 <stringAttribute key="com.pemicro.debug.gdbjtag.pne.alternativeAlgorithmPath" value=""/>
@@ -62,14 +64,19 @@
 <booleanAttribute key="com.pemicro.debug.gdbjtag.pne.doContinue" value="true"/>
 <booleanAttribute key="com.pemicro.debug.gdbjtag.pne.doGdbServerAllocateSemihostingConsole" value="true"/>
 <booleanAttribute key="com.pemicro.debug.gdbjtag.pne.doPartitioning" value="false"/>
-<booleanAttribute key="com.pemicro.debug.gdbjtag.pne.enableSemihosting" value="true"/>
+<booleanAttribute key="com.pemicro.debug.gdbjtag.pne.enableSemihosting" value="false"/>
 <booleanAttribute key="com.pemicro.debug.gdbjtag.pne.enableSemihostingIoclientGdbClient" value="false"/>
 <booleanAttribute key="com.pemicro.debug.gdbjtag.pne.enableSemihostingIoclientTelnet" value="true"/>
+<intAttribute key="com.pemicro.debug.gdbjtag.pne.eraseOptionIndex" value="0"/>
+<booleanAttribute key="com.pemicro.debug.gdbjtag.pne.eraseOptionsenabled" value="false"/>
 <stringAttribute key="com.pemicro.debug.gdbjtag.pne.gdbClientOtherCommands" value="set mem inaccessible-by-default off&#13;&#10;set tcp auto-retry on&#13;&#10;set tcp connect-timeout 240"/>
 <stringAttribute key="com.pemicro.debug.gdbjtag.pne.gdbClientOtherOptions" value=""/>
 <intAttribute key="com.pemicro.debug.gdbjtag.pne.gdbServerTelnetPortNumber" value="51794"/>
+<intAttribute key="com.pemicro.debug.gdbjtag.pne.gdbmiPortNumber" value="6224"/>
 <intAttribute key="com.pemicro.debug.gdbjtag.pne.jtagPreIrBits" value="0"/>
 <intAttribute key="com.pemicro.debug.gdbjtag.pne.jtagTapNumber" value="0"/>
+<stringAttribute key="com.pemicro.debug.gdbjtag.pne.macScript" value=""/>
+<booleanAttribute key="com.pemicro.debug.gdbjtag.pne.macScriptEnable" value="false"/>
 <booleanAttribute key="com.pemicro.debug.gdbjtag.pne.ml.ALWAYS_ERASE" value="false"/>
 <stringAttribute key="com.pemicro.debug.gdbjtag.pne.ml.CYCLONE_IP" value=""/>
 <booleanAttribute key="com.pemicro.debug.gdbjtag.pne.ml.DO_RESET_DELAY" value="false"/>
@@ -116,6 +123,7 @@
 <booleanAttribute key="com.pemicro.debug.gdbjtag.pne.sda.SPECIFY_NETWORK_CARD" value="false"/>
 <booleanAttribute key="com.pemicro.debug.gdbjtag.pne.sda.STARTUP_USE_SWD" value="true"/>
 <intAttribute key="com.pemicro.debug.gdbjtag.pne.selectedCoreNumber" value="1"/>
+<intAttribute key="com.pemicro.debug.gdbjtag.pne.serverPortNumber" value="7224"/>
 <booleanAttribute key="com.pemicro.debug.gdbjtag.pne.trc_eth.ALWAYS_ERASE" value="false"/>
 <stringAttribute key="com.pemicro.debug.gdbjtag.pne.trc_eth.CYCLONE_IP" value=""/>
 <booleanAttribute key="com.pemicro.debug.gdbjtag.pne.trc_eth.DO_RESET_DELAY" value="false"/>

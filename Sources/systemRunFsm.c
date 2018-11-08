@@ -117,8 +117,8 @@ void fsm_task_run(void)
 //			uart_data.item.SAW = 0x33;
 			uart_data.item.SAW = saw;
 			saw++;
-			uart_data.item.CHECKSUM = 0xAA;
-//			uart_data.item.CHECKSUM = checksum(uart_data.array, (sizeof(uart_data.array) - 1));  // Do not include the last byte that is to store checksum
+//			uart_data.item.CHECKSUM = 0xAA;
+			uart_data.item.CHECKSUM = checksum(uart_data.array, (sizeof(uart_data.array) - 1));  // Do not include the last byte that is to store checksum
 //			print_uart_data();
 			fsm_state = UPDATE_UART_TX_BUFFER;
 			break;

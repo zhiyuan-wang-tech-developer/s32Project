@@ -7,7 +7,7 @@
 **     Version     : Component SDK_S32K14x_09, Driver 01.00, CPU db: 3.00.000
 **     Repository  : SDK_S32K14x_09
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-11-06, 13:12, # CodeGen: 65
+**     Date/Time   : 2018-11-08, 17:09, # CodeGen: 74
 **
 **     Copyright 1997 - 2015 Freescale Semiconductor, Inc.
 **     Copyright 2016-2017 NXP
@@ -37,7 +37,7 @@
 
 const can_user_config_t can_pal0_Config0 = {
     .maxBuffNum = 16U,
-    .mode = CAN_LOOPBACK_MODE,
+    .mode = CAN_NORMAL_MODE,
     .enableFD = false,
     .payloadSize = CAN_PAYLOAD_SIZE_8,
     .nominalBitrate = {
