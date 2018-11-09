@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-#Progress monitor hint: 46
+#Progress monitor hint: 48
 first : all
 -include ../makefile.init
 
@@ -53,13 +53,13 @@ EXECUTABLES_OS_FORMAT += \
 AutoLivTest.elf \
 
 SECONDARY_FLASH += \
-AutoLivTest.srec \
+AutoLivTest.hex \
 
 SECONDARY_FLASH_QUOTED += \
-"AutoLivTest.srec" \
+"AutoLivTest.hex" \
 
 SECONDARY_FLASH_OS_FORMAT += \
-AutoLivTest.srec \
+AutoLivTest.hex \
 
 SECONDARY_SIZE += \
 AutoLivTest.siz \
@@ -77,21 +77,21 @@ all: warning-messages explicit-dependencies AutoLivTest.elf secondary-outputs
 # Tool invocations
 AutoLivTest.elf: $(OBJS) D:/AllRound/Project/AutoLivTest/Project_Settings/Linker_Files/S32K144_64_ram.ld $(USER_OBJS)
 	@echo 'Building target: $@'
-	@echo 'Executing target #47 $@'
+	@echo 'Executing target #49 $@'
 	@echo 'Invoking: Standard S32DS C Linker'
 	arm-none-eabi-gcc -o "AutoLivTest.elf" "@AutoLivTest.args"  $(USER_OBJS_QUOTED) $(LIBS_QUOTED)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-AutoLivTest.srec: $(EXECUTABLES)
-	@echo 'Executing target #48 $@'
+AutoLivTest.hex: $(EXECUTABLES)
+	@echo 'Executing target #50 $@'
 	@echo 'Invoking: Standard S32DS Create Flash Image'
-	arm-none-eabi-objcopy -O srec $(EXECUTABLES)  "AutoLivTest.srec"
+	arm-none-eabi-objcopy -O ihex $(EXECUTABLES)  "AutoLivTest.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 AutoLivTest.siz: $(EXECUTABLES)
-	@echo 'Executing target #49 $@'
+	@echo 'Executing target #51 $@'
 	@echo 'Invoking: Standard S32DS Print Size'
 	arm-none-eabi-size --format=sysv --totals $(EXECUTABLES)
 	@echo 'Finished building: $@'

@@ -75,7 +75,9 @@ Sources/main.o: ../Sources/main.c \
  D:/AllRound/Project/AutoLivTest/include/adc.h \
  D:/AllRound/Project/AutoLivTest/include/dac.h \
  D:/AllRound/Project/AutoLivTest/include/can_bus.h \
- D:/AllRound/Project/AutoLivTest/include/system_basis_chip_TLE9261.h
+ D:/AllRound/Project/AutoLivTest/include/system_basis_chip_TLE9261.h \
+ D:/AllRound/Project/AutoLivTest/include/pc_communication.h \
+ D:/AllRound/Project/AutoLivTest/include/bootloader.h
 
 C:/NXP/S32DS_ARM_v2018.R1/S32DS/arm_ewl2/EWL_C/include/lib_c99.prefix:
 
@@ -230,3 +232,7 @@ D:/AllRound/Project/AutoLivTest/include/dac.h:
 D:/AllRound/Project/AutoLivTest/include/can_bus.h:
 
 D:/AllRound/Project/AutoLivTest/include/system_basis_chip_TLE9261.h:
+
+D:/AllRound/Project/AutoLivTest/include/pc_communication.h:
+
+D:/AllRound/Project/AutoLivTest/include/bootloader.h:

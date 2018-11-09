@@ -22,7 +22,6 @@
 */
 /* MODULE main */
 
-
 /* Including necessary module. Cpu.h contains other modules needed for compiling.*/
 #include "Cpu.h"
 #include "stdio.h"
@@ -32,14 +31,20 @@
 #include "dac.h"
 #include "can_bus.h"
 #include "system_basis_chip_TLE9261.h"
+#include "pc_communication.h"
+#include "bootloader.h"
 
 volatile int exit_code = 0;
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
 
+// For test purpose
 //const uint8_t uartText[9] = "allround\n";
-uint8_t uartTxBuffer[9] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09};
-//uint8_t uartTxBuffer[9] = {'\0'};
+const uint8_t testV1[10] = "test v1.0\n";
+const uint8_t testV2[10] = "test v2.0\n";
+
+//uint8_t uartTxBuffer[9] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09};
+uint8_t uartTxBuffer[9] = {'\0'};
 
 // Function Prototypes
 bool setTxSampleRate(uint16_t rate);
@@ -137,13 +142,22 @@ int main(void)
    ADC_init();							/* Configure the ADC */
    SBC_Init();							/* Configure the System Basis Chip */
    CAN_communication_init();
+   flash_init();
+   PC2UART_communication_init();
 
    /* For example: for(;;) { } */
 
    for(;;)
    {
-	   fsm_task_run();
-	   CAN_transceiver_run();
+	   PC2UART_receiver_run();
+	   /*
+	    * If the firmware is being downloaded, the tasks within the brackets are not executed any more.
+	    */
+	   if(!isFirmwareDownloading)
+	   {
+		   fsm_task_run();
+		   CAN_transceiver_run();
+	   }
 //	  PINS_DRV_TogglePins(PTE, 1<<8);
 //	  PINS_DRV_TogglePins(PTD, 1<<6);
 //	  PINS_DRV_TogglePins(PTD, 1<<5);
@@ -198,7 +212,10 @@ void LPIT0_Ch0_IRQHandler(void)
 	{
 		CAN_TimeToTransmit = true;
 	}
-
+	// For test version 1
+//	LPUART_DRV_SendData(INST_LPUART0, testV1, sizeof(testV1));
+	// For test version 2
+	LPUART_DRV_SendData(INST_LPUART0, testV2, sizeof(testV2));
 	// Toggle LED 1
 	PINS_DRV_TogglePins(PTE, 1<<8);
 }
@@ -223,8 +240,10 @@ void LPTMR0_IRQHandler(void)
 	{
 		uart_tx_buffer_mutex = true;
 		// The state machine now can not access the uart tx buffer
+
 //		LPUART_DRV_SendDataPolling(INST_LPUART0, uartTxBuffer, sizeof(uartTxBuffer));
-		LPUART_DRV_SendDataBlocking(INST_LPUART0, uartTxBuffer, sizeof(uartTxBuffer), 10);
+//		LPUART_DRV_SendDataBlocking(INST_LPUART0, uartTxBuffer, sizeof(uartTxBuffer), 10);
+
 		uart_tx_buffer_mutex = false;
 //		PINS_DRV_TogglePins(PTD, 1<<6); 	// used for waveform observation
 	}
@@ -232,9 +251,11 @@ void LPTMR0_IRQHandler(void)
 	{
 		// The uart tx buffer is now being accessed by the state-machine.
 		// The uart tx buffer is now being copied.
+
 		// Here, you can send the uart data array directly and safely
 //		LPUART_DRV_SendDataPolling(INST_LPUART0, &(uart_data.array[0]), sizeof(uart_data.array));
-		LPUART_DRV_SendDataBlocking(INST_LPUART0, &(uart_data.array[0]), sizeof(uart_data.array), 10);
+//		LPUART_DRV_SendDataBlocking(INST_LPUART0, &(uart_data.array[0]), sizeof(uart_data.array), 10);
+
 //		PINS_DRV_TogglePins(PTD, 1<<5);
 	}
 	LPTMR_DRV_SetInterrupt(INST_LPTMR1, true); // Enable the interrupt again
@@ -242,7 +263,7 @@ void LPTMR0_IRQHandler(void)
 
 /*
  * @brief:
- * available TX sample rate range = 1222 ~ 1280
+ *			The available TX sample rate range = 1222 ~ 1280
  */
 bool setTxSampleRate(uint16_t rate)
 {
@@ -265,7 +286,8 @@ bool setTxSampleRate(uint16_t rate)
  * 		   Both functions are registered into the vector table in RAM by INT_SYS_InstallHandler().
  * 		   They can not be registered if the vector table is in FLASH.
  */
-void TogglePTD5 (void)
+
+/*void TogglePTD5 (void)
 {
 	// 1s timing
 	static uint16_t sec_counter = 0;
@@ -276,7 +298,7 @@ void TogglePTD5 (void)
 	sec_counter %= 15;	// every 15 seconds the counter is cleared
 	if( sec_counter == 0 )
 	{
-		uart_sync ^= 0x80;		/* Toggle uart_sync MSB bit */
+		uart_sync ^= 0x80;		 Toggle uart_sync MSB bit
 	}
 	sec_counter++;
 
@@ -289,10 +311,10 @@ void TogglePTD5 (void)
 //	printf("Tx Sample Rate: %lu\n", countTxSamplePerSec);
 
 //	LPUART_DRV_SendDataPolling(INST_LPUART0, uartTxBuffer, sizeof(uartTxBuffer));
-}
+}*/
 
 
-void TogglePTD6 (void)
+/*void TogglePTD6 (void)
 {
 	// 792us timing
 	if( LPTMR_DRV_GetCompareFlag(INST_LPTMR1) )
@@ -333,7 +355,7 @@ void TogglePTD6 (void)
 		PINS_DRV_TogglePins(PTD, 1<<5);
 	}
 	LPTMR_DRV_SetInterrupt(INST_LPTMR1, true); // Enable the interrupt again
-}
+}*/
 
 
 /* END main */

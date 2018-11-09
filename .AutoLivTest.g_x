@@ -121,10 +121,10 @@
       <File Name="SDK/platform/devices/devassert.h" FileDate="2018-10-09, 15:31:11" FileAge="1539091871472" FileType="1048576" CompNumb="6" />
       <File Name="Generated_Code/clockManager1.c" FileDate="2018-11-05, 17:13:58" FileAge="1541434438793" FileType="45637" CompNumb="10" />
       <File Name="SDK/platform/devices/device_registers.h" FileDate="2018-10-09, 15:31:11" FileAge="1539091871472" FileType="1048576" CompNumb="6" />
-      <File Name="Sources/main.c" FileDate="2018-11-08, 17:01:39" FileAge="1541692899679" FileType="128" />
+      <File Name="Sources/main.c" FileDate="2018-11-09, 15:09:00" FileAge="1541772540721" FileType="128" />
       <File Name="Generated_Code/pin_mux.h" FileDate="2018-11-05, 17:13:58" FileAge="1541434438762" FileType="45637" CompNumb="9" />
       <File Name="Generated_Code/pin_mux.c" FileDate="2018-11-05, 17:13:58" FileAge="1541434438793" FileType="45637" CompNumb="9" />
     </GeneratedByPE>
   </GeneratedFilesList>
-  <CodeGenReference>76</CodeGenReference>
+  <CodeGenReference>79</CodeGenReference>
 </CodeGenerationInfo>
