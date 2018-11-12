@@ -23,6 +23,7 @@
 
 #define LED_OFF		PINS_DRV_ClearPins(PTE, 1<<8)
 #define LED_ON		PINS_DRV_SetPins(PTE, 1<<8)
+#define LED_TOGGLE	PINS_DRV_TogglePins(PTE, 1<<8)
 
 // PC to MCU data packet command code
 const uint8_t WriteFlashMemory = 0x01u;			// Write new program to MCU flash memory.
@@ -96,6 +97,8 @@ void PC2UART_receiver_run(void)
 	switch (PC2UART_ReceiverStatus)
 	{
 		case READY_FOR_DATA_RX:
+			// Make sure LED off.
+			LED_OFF;
 			if( lpuart0_State.isRxBusy )
 			{
 				// There is an active data reception. Abort reception and WAIT!
@@ -106,8 +109,6 @@ void PC2UART_receiver_run(void)
 			{
 				// UART RX module is not busy now. START data reception!
 				PC2UART_ReceiverStatus = INITIATE_DATA_RX;
-				// Make sure LED off.
-				LED_OFF;
 			}
 			break;
 
@@ -119,6 +120,7 @@ void PC2UART_receiver_run(void)
 			break;
 
 		case FIND_RX_DATA_PACKET_HEADER:
+			LED_OFF;
 			if( FifoRingBuffer_IsEmpty() )
 			{
 				// No rx byte in the FIFO Ring Buffer.
@@ -137,6 +139,8 @@ void PC2UART_receiver_run(void)
 					// Clear the rx data packet.
 					memset(rx_data_packet.buffer, 0u, sizeof(rx_data_packet.buffer));
 					rx_data_packet.item.header = rxByte;
+					// Turn LED on to indicate the firmware download in progress.
+					LED_ON;
 				}
 				else
 				{
@@ -221,8 +225,6 @@ void PC2UART_receiver_run(void)
 					if(isFirmwareDownloading == false)
 					{
 						isFirmwareDownloading = true;
-						// Turn LED on to indicate the firmware download in progress.
-						LED_ON;
 					}
 				}
 				else
@@ -284,8 +286,9 @@ void PC2UART_receiver_run(void)
 			{
 				isDataPacketCorrect = false;
 			}
-
+#ifdef DEBUG_FROM_RAM
 //			printDataPacket(&rx_data_packet);
+#endif
 			// Check command to execute
 			if( rx_data_packet.item.command == WriteFlashMemory )
 			{
@@ -313,6 +316,7 @@ void PC2UART_receiver_run(void)
 
 		case WRITE_RPOGRAM_TO_FLASH:
 			isWriteSuccessful = flash_auto_write_64bytes();
+//			isWriteSuccessful = true;
 			PC2UART_ReceiverStatus = SEND_ACKNOWLEDGE_MSG;
 			break;
 
@@ -324,7 +328,9 @@ void PC2UART_receiver_run(void)
 				 * successfully written into the flash memory.
 				 * Then, send OK acknowledge.
 				 */
+#ifdef DEBUG_FROM_RAM
 //				printf("Correct packet\r\n");
+#endif
 //				LPUART_DRV_SendDataPolling(INST_LPUART0, (uint8_t *)ACKNOWLEDGE_MSG, strlen(ACKNOWLEDGE_MSG));
 				SendAcknowledge();
 			}
@@ -335,9 +341,11 @@ void PC2UART_receiver_run(void)
 				 * But, the data packet is successfully written into the flash memory.
 				 * Then, send checksum error acknowledge.
 				 */
+#ifdef DEBUG_FROM_RAM
 //				printf("Error: rx data packet\r\n");
 //				LPUART_DRV_SendDataPolling(INST_LPUART0, (uint8_t *)ERROR_MSG, strlen(ERROR_MSG));
 //				calculateChecksum(&rx_data_packet);
+#endif
 				SendNoAcknowledge(ChecksumError);
 			}
 			else
@@ -347,7 +355,9 @@ void PC2UART_receiver_run(void)
 				 * If it is failed to write the data packet into the flash memory,
 				 * then send write flash memory error acknowledge.
 				 */
+#ifdef DEBUG_FROM_RAM
 //				printf("Error: flash write\r\n");
+#endif
 				SendNoAcknowledge(WriteFlashMemoryError);
 			}
 			PC2UART_ReceiverStatus = FIND_RX_DATA_PACKET_HEADER;
@@ -355,7 +365,7 @@ void PC2UART_receiver_run(void)
 
 		case UPDATE_FIRMWARE_STATUS:
 			// All data packet transfer has ended.
-
+			LED_OFF;
 			// Calculate the size of the new firmware.
 			new_firmware_status.newFirmwareSize = calculateNewFirmwareSize();
 
@@ -369,16 +379,20 @@ void PC2UART_receiver_run(void)
 			// Set the firmware update flag
 			if(rx_data_packet.item.command == ResetOK)
 			{
+#ifdef DEBUG_FROM_RAM
 				// Successful in new firmware downloading.
-//				printf("Success in new firmware download!\r\n");
+				printf("Success in new firmware download!\r\n");
+#endif
 				// New firmware is updated
 				new_firmware_status.isNewFirmwareUpdated = 1u;
 			}
 
 			if(rx_data_packet.item.command == ResetNotOK)
 			{
+#ifdef DEBUG_FROM_RAM
 				// Failed in new firmware downloading.
-//				printf("Failure in new firmware download!\r\n");
+				printf("Failure in new firmware download!\r\n");
+#endif
 				// New firmware is not updated
 				new_firmware_status.isNewFirmwareUpdated = 0u;
 			}
@@ -390,17 +404,24 @@ void PC2UART_receiver_run(void)
 			break;
 
 		case RESET_MCU:
+			LED_ON;
 			// Disable UART module
 			LPUART_DRV_Deinit(INST_LPUART0);
 			// Clear the flag to indicate that the firmware download has ended.
 			isFirmwareDownloading = false;
-			// Turn off LED to indicate the end of the firmware downloading.
-			LED_OFF;
 			// Reset the PC to UART receiver status
 			PC2UART_ReceiverStatus = READY_FOR_DATA_RX;
-//			printf("System Reset...\r\n");
-//			auto_ram_reset();
+			// Turn off LED to indicate the end of the firmware downloading.
+			LED_OFF;
+
+#ifdef DEBUG_FROM_RAM
+			printf("System Reset...\r\n");
+			auto_ram_reset();
+#endif
+
+#ifdef RUN_FROM_FLASH
 			auto_flash_reset();
+#endif
 			break;
 
 		default:
@@ -462,7 +483,7 @@ bool checkDataPacket( DATA_PACKET_t * pDataPacket )
 	// To print the reset command
 	if( pDataPacket->item.size == 5u )
 	{
-		printDataPacket(&rx_data_packet);
+//		printDataPacket(&rx_data_packet);
 	}
 
 	// Check PC command

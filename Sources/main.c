@@ -213,9 +213,9 @@ void LPIT0_Ch0_IRQHandler(void)
 		CAN_TimeToTransmit = true;
 	}
 	// For test version 1
-//	LPUART_DRV_SendData(INST_LPUART0, testV1, sizeof(testV1));
+	LPUART_DRV_SendData(INST_LPUART0, testV1, sizeof(testV1));
 	// For test version 2
-	LPUART_DRV_SendData(INST_LPUART0, testV2, sizeof(testV2));
+//	LPUART_DRV_SendData(INST_LPUART0, testV2, sizeof(testV2));
 	// Toggle LED 1
 	PINS_DRV_TogglePins(PTE, 1<<8);
 }

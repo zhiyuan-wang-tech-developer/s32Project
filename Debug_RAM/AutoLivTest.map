@@ -495,7 +495,7 @@ Discarded input sections
  .text          0x00000000        0x0 ./Sources/main.o
  .data          0x00000000        0x0 ./Sources/main.o
  .bss           0x00000000        0x0 ./Sources/main.o
- .rodata.testV2
+ .rodata.testV1
                 0x00000000        0xa ./Sources/main.o
  .debug_macro   0x00000000      0x868 ./Sources/main.o
  .debug_macro   0x00000000       0x52 ./Sources/main.o
@@ -6146,9 +6146,9 @@ LOAD C:/NXP/S32DS_ARM_v2018.R1/S32DS/arm_ewl2/lib/armv7e-m/__arm_end-hosted.o
  .rodata        0x20003c30        0x4 ./SDK/platform/drivers/src/lpit/lpit_driver.o
  .rodata        0x20003c34       0x18 ./SDK/platform/drivers/src/flexcan/flexcan_hw_access.o
  *(.rodata*)
- .rodata.testV1
+ .rodata.testV2
                 0x20003c4c        0xa ./Sources/main.o
-                0x20003c4c                testV1
+                0x20003c4c                testV2
  *fill*         0x20003c56        0x2 
  .rodata.can_buffer_configure
                 0x20003c58        0x5 ./Sources/can_bus.o

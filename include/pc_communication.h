@@ -11,6 +11,9 @@
 #include "stdint.h"
 #include "stdbool.h"
 
+//#define DEBUG_FROM_RAM				1u
+#define RUN_FROM_FLASH				1u
+
 #define DATA_PACKET_LENGTH			255u
 #define NACK_DATA_PACKET_LENGTH		5u
 #define  ACK_DATA_PACKET_LENGTH		4u
