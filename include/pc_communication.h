@@ -11,13 +11,16 @@
 #include "stdint.h"
 #include "stdbool.h"
 
-//#define DEBUG_FROM_RAM				1u
-#define RUN_FROM_FLASH				1u
+//#define DEBUG_FROM_RAM									1u
+#define RUN_FROM_FLASH										1u
+//#define TEST_FIRMWARE_UPDATE_NO_FLASH_WRITE					1u
 
 #define DATA_PACKET_LENGTH			255u
 #define NACK_DATA_PACKET_LENGTH		5u
 #define  ACK_DATA_PACKET_LENGTH		4u
 
+// Maximum download time is 60 seconds
+#define MAX_DOWNLOAD_TIME			60u
 
 /*
  * Data Packet Structure
@@ -103,6 +106,7 @@ typedef struct
 // Public global variable
 extern DATA_PACKET_t rx_data_packet;
 extern bool isFirmwareDownloading;
+extern uint8_t countDownloadTime;
 
 // Public function prototype
 void PC2UART_communication_init(void);

@@ -8,6 +8,7 @@
 #include "dac.h"
 #include "Cpu.h"
 #include "string.h"
+#include "system_config.h"
 
 bool dac_steps = false;		// indicate DAC offset stepping
 
@@ -92,7 +93,7 @@ void LPSPI2_init(void)
 {
 	LPSPI_DRV_MasterInit(LPSPI2_DAC, &lpspi2_dacState, &lpspi2_dac_MasterConfig0);
 	LPSPI_DRV_MasterSetDelay(LPSPI2_DAC, 1U, 1U, 1U);
-	INT_SYS_SetPriority(LPSPI2_IRQn, 12);
+	INT_SYS_SetPriority(LPSPI2_IRQn, INTERRUPT_PRIORITY_LEVEL_SPI_DAC);
 	INT_SYS_ClearPending(LPSPI2_IRQn);
 }
 

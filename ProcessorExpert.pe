@@ -3,7 +3,7 @@
   <Header>
     <Name>AutoLivTest</Name>
     <SavedBy>dynatron2018</SavedBy>
-    <ModificationStamp>38</ModificationStamp>
+    <ModificationStamp>39</ModificationStamp>
     <Date>2018-10-09</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.12.2.RT7_b1743-0713</PEversion>
@@ -12800,7 +12800,7 @@
     <Repository>file:/${ProcessorExpert_loc}/../../S32DS/S32SDK_S32K14x_EAR_0.8.6/tools/pex/Repositories/SDK_S32K14x_09_Repository</Repository>
     <ComponentUUID>com.freescale.processorexpert.ksdk.lptmr</ComponentUUID>
     <BeanType>lptmr</BeanType>
-    <Name>lpTmr1</Name>
+    <Name>lpTmr0</Name>
     <CompNumb>14</CompNumb>
     <CompEnabled>true</CompEnabled>
     <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
@@ -12815,7 +12815,7 @@
         <ItemSymbol>DeviceName</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>lpTmr1</Value>
+        <Value>lpTmr0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>PeriphDevice</ItemSymbol>
@@ -12873,7 +12873,7 @@
         <ItemSymbol>lptmrGeneralCfg_NAME0</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>lpTmr1_config0</Value>
+        <Value>lpTmr0_config0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>lptmrGeneralCfg_TYPE0</ItemSymbol>
@@ -13162,7 +13162,7 @@
     <Repository>file:/${ProcessorExpert_loc}/../../S32DS/S32SDK_S32K14x_EAR_0.8.6/tools/pex/Repositories/SDK_S32K14x_09_Repository</Repository>
     <ComponentUUID>com.freescale.processorexpert.ksdk.lpit</ComponentUUID>
     <BeanType>lpit</BeanType>
-    <Name>lpit1</Name>
+    <Name>lpit0</Name>
     <CompNumb>15</CompNumb>
     <CompEnabled>true</CompEnabled>
     <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
@@ -13177,7 +13177,7 @@
         <ItemSymbol>DeviceName</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>lpit1</Value>
+        <Value>lpit0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>PeriphDevice</ItemSymbol>
@@ -13228,7 +13228,7 @@
         <ItemSymbol>GlobalConfiguration_NAME</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>lpit1_InitConfig</Value>
+        <Value>lpit0_InitConfig</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>RunInDebugMode</ItemSymbol>
@@ -13266,7 +13266,7 @@
         <ItemSymbol>Configuration_NAME0</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>lpit1_ChnConfig0</Value>
+        <Value>lpit0_ChnConfig0</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>Configuration_READONLY0</ItemSymbol>

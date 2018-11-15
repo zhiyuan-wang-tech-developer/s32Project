@@ -104,10 +104,10 @@
       <EmptySection_DummyValue />
     </Events>
   </Bean>
-  <Bean name="lpTmr1" type="lptmr">
+  <Bean name="lpTmr0" type="lptmr">
     <Enabled v="Y" />
     <Properties>
-      <Component_name v="lpTmr1" />
+      <Component_name v="lpTmr0" />
       <Device v="LPTMR0" />
       <Component_version v="S32K144_SDK01" />
     </Properties>
@@ -118,10 +118,10 @@
       <EmptySection_DummyValue />
     </Events>
   </Bean>
-  <Bean name="lpit1" type="lpit">
+  <Bean name="lpit0" type="lpit">
     <Enabled v="Y" />
     <Properties>
-      <Component_name v="lpit1" />
+      <Component_name v="lpit0" />
       <Device v="LPIT0" />
       <Component_version v="S32K144_SDK01" />
     </Properties>

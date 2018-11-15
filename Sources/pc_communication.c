@@ -10,6 +10,7 @@
 #include "Cpu.h"
 #include "stdio.h"
 #include "string.h"
+#include "system_config.h"
 
 #define UART_RX_RING_BUFFER_SIZE	256
 
@@ -50,12 +51,18 @@ UART_RECEIVER_STATE_t PC2UART_ReceiverStatus = READY_FOR_DATA_RX;
 
 // The flag to indicate if the firmware is being downloaded.
 bool isFirmwareDownloading = false;
+/*
+ * Count download time in second.
+ * It increments every second by LPIT0_Ch0_IRQHandler
+ */
+uint8_t countDownloadTime = 0;
 
 const uint8_t DataPacketHeader = 0x55u;
 const uint8_t DataPacketType_PutData = 0x0Bu;
 const uint8_t DataPacketSize = 69u; // 0x45u  The
 
 // Function declaration for internal use
+bool isDownloadTimeout( void );
 bool isRxDataPacketCorrect( DATA_PACKET_t * pDataPacket );
 bool checkDataPacket( DATA_PACKET_t * pDataPacket );
 void printDataPacket( DATA_PACKET_t * pDataPacket );
@@ -77,7 +84,7 @@ void PC2UART_communication_init(void)
 {
     LPUART_DRV_Init(INST_LPUART0, &lpuart0_State, &lpuart0_InitConfig0);
     INT_SYS_ClearPending(LPUART0_RxTx_IRQn);
-    INT_SYS_SetPriority(LPUART0_RxTx_IRQn, 8);
+    INT_SYS_SetPriority(LPUART0_RxTx_IRQn, INTERRUPT_PRIORITY_LEVEL_UART);
 //    uint8_t lpuart0_interrupt_priority = 0;
 //    lpuart0_interrupt_priority = INT_SYS_GetPriority(LPUART0_RxTx_IRQn);
     LPUART_DRV_InstallRxCallback(INST_LPUART0, handleRxByte, NULL);
@@ -94,6 +101,13 @@ void PC2UART_receiver_run(void)
 	static bool isDataPacketCorrect = false;			// Indicate if the received data packet is expected data packet.
 	uint8_t rxByte = 0;
 
+	// Check download timeout
+	if( isDownloadTimeout() )
+	{
+		isFirmwareDownloading = false;
+		PC2UART_ReceiverStatus = READY_FOR_DATA_RX;
+	}
+
 	switch (PC2UART_ReceiverStatus)
 	{
 		case READY_FOR_DATA_RX:
@@ -109,6 +123,10 @@ void PC2UART_receiver_run(void)
 			{
 				// UART RX module is not busy now. START data reception!
 				PC2UART_ReceiverStatus = INITIATE_DATA_RX;
+				/*
+				 * If the previous download process is aborted, download the firmware and rewrite it to flash again.
+				 */
+				flash_auto_write_64bytes_reset();
 			}
 			break;
 
@@ -120,7 +138,10 @@ void PC2UART_receiver_run(void)
 			break;
 
 		case FIND_RX_DATA_PACKET_HEADER:
-			LED_OFF;
+			if( isFirmwareDownloading )
+			{
+				LED_OFF;
+			}
 			if( FifoRingBuffer_IsEmpty() )
 			{
 				// No rx byte in the FIFO Ring Buffer.
@@ -222,9 +243,10 @@ void PC2UART_receiver_run(void)
 					PC2UART_ReceiverStatus = EXTRACT_RX_DATA_PACKET;
 					rx_data_packet.item.command = rxByte;
 					// Set the flag to indicate that the firmware is being downloaded.
-					if(isFirmwareDownloading == false)
+					if( isFirmwareDownloading == false )
 					{
 						isFirmwareDownloading = true;
+						countDownloadTime = 0;
 					}
 				}
 				else
@@ -287,7 +309,7 @@ void PC2UART_receiver_run(void)
 				isDataPacketCorrect = false;
 			}
 #ifdef DEBUG_FROM_RAM
-//			printDataPacket(&rx_data_packet);
+			printDataPacket(&rx_data_packet);
 #endif
 			// Check command to execute
 			if( rx_data_packet.item.command == WriteFlashMemory )
@@ -315,8 +337,11 @@ void PC2UART_receiver_run(void)
 			break;
 
 		case WRITE_RPOGRAM_TO_FLASH:
+#ifdef TEST_FIRMWARE_UPDATE_NO_FLASH_WRITE
+			isWriteSuccessful = true;
+#else
 			isWriteSuccessful = flash_auto_write_64bytes();
-//			isWriteSuccessful = true;
+#endif
 			PC2UART_ReceiverStatus = SEND_ACKNOWLEDGE_MSG;
 			break;
 
@@ -329,7 +354,7 @@ void PC2UART_receiver_run(void)
 				 * Then, send OK acknowledge.
 				 */
 #ifdef DEBUG_FROM_RAM
-//				printf("Correct packet\r\n");
+				printf("Correct packet\r\n");
 #endif
 //				LPUART_DRV_SendDataPolling(INST_LPUART0, (uint8_t *)ACKNOWLEDGE_MSG, strlen(ACKNOWLEDGE_MSG));
 				SendAcknowledge();
@@ -342,9 +367,9 @@ void PC2UART_receiver_run(void)
 				 * Then, send checksum error acknowledge.
 				 */
 #ifdef DEBUG_FROM_RAM
-//				printf("Error: rx data packet\r\n");
+				printf("Error: rx data packet\r\n");
 //				LPUART_DRV_SendDataPolling(INST_LPUART0, (uint8_t *)ERROR_MSG, strlen(ERROR_MSG));
-//				calculateChecksum(&rx_data_packet);
+				calculateChecksum(&rx_data_packet);
 #endif
 				SendNoAcknowledge(ChecksumError);
 			}
@@ -356,7 +381,7 @@ void PC2UART_receiver_run(void)
 				 * then send write flash memory error acknowledge.
 				 */
 #ifdef DEBUG_FROM_RAM
-//				printf("Error: flash write\r\n");
+				printf("Error: flash write\r\n");
 #endif
 				SendNoAcknowledge(WriteFlashMemoryError);
 			}
@@ -398,8 +423,9 @@ void PC2UART_receiver_run(void)
 			}
 
 			// Store the new firmware status into EEPROM for use in next restart.
+#ifndef	TEST_FIRMWARE_UPDATE_NO_FLASH_WRITE
 			isWriteSuccessful = eeprom_write_new_firmware_status();
-
+#endif
 			PC2UART_ReceiverStatus = RESET_MCU;
 			break;
 
@@ -416,11 +442,15 @@ void PC2UART_receiver_run(void)
 
 #ifdef DEBUG_FROM_RAM
 			printf("System Reset...\r\n");
-			auto_ram_reset();
+//			auto_ram_reset();
 #endif
 
 #ifdef RUN_FROM_FLASH
-			auto_flash_reset();
+			/*
+			 * This flash reset may lead to an unexpected exception when the processor is running in DEBUG_FLASH mode
+			 */
+//			auto_flash_reset();
+			SystemSoftwareReset();
 #endif
 			break;
 
@@ -428,6 +458,37 @@ void PC2UART_receiver_run(void)
 			// If the receiver state machine happens to be in the default state, RESET the state machine.
 			PC2UART_ReceiverStatus = READY_FOR_DATA_RX;
 			break;
+	}
+}
+
+/*
+ * @brief: Check if the firmware download process exceeds the maximum download time.
+ */
+bool isDownloadTimeout( void )
+{
+	if( isFirmwareDownloading )
+	{
+		// If the firmware is being downloaded, the 1 second timer interrupt is disabled.
+		// Check the timer interrupt flag to see if 1s timing is up.
+		if( LPIT_DRV_GetInterruptFlagTimerChannels(INST_LPIT0, 0x01u) )
+		{
+			LPIT_DRV_ClearInterruptFlagTimerChannels(INST_LPIT0, 0x01u);
+			countDownloadTime++;
+		}
+
+		if( countDownloadTime > MAX_DOWNLOAD_TIME )
+		{
+			// Timeout
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	else
+	{
+		return false;
 	}
 }
 

@@ -9,6 +9,7 @@
 #include "Cpu.h"
 #include "stdint.h"
 #include "string.h"
+#include "system_config.h"
 
 uint8_t lpspi0_adc_txDataBuffer[SPI0_BUFFER_SIZE] = {0};
 uint8_t lpspi0_adc_rxDataBuffer[SPI0_BUFFER_SIZE] = {0};
@@ -19,7 +20,7 @@ void LPSPI0_init(void)
 {
 	LPSPI_DRV_MasterInit(LPSPI0_ADC, &lpspi0_adcState, &lpspi0_adc_MasterConfig0);
 	LPSPI_DRV_MasterSetDelay(LPSPI0_ADC, 1U, 1U, 1U);
-	INT_SYS_SetPriority(LPSPI0_IRQn, 11);
+	INT_SYS_SetPriority(LPSPI0_IRQn, INTERRUPT_PRIORITY_LEVEL_SPI_ADC);
 	INT_SYS_ClearPending(LPSPI0_IRQn);
 //	INT_SYS_EnableIRQ(LPSPI0_IRQn);    // LPSPI0_IRQn has been enabled in LPSPI_DRV_MasterInit()
 }
@@ -43,7 +44,7 @@ void ADC_init(void)
 	ADC_spi_write(MCP3911_PHASE, adc_config_data, sizeof(adc_config_data));
 
 	// Enable PORTA 1 interrupt for detecting the falling edge on the ADC Ready pin
-	INT_SYS_SetPriority(PORTA_IRQn, 13); 						// Set interrupt priority for PORTA 1 (ADC data ready)
+	INT_SYS_SetPriority(PORTA_IRQn, INTERRUPT_PRIORITY_LEVEL_ADC_RDY); 						// Set interrupt priority for PORTA 1 (ADC data ready)
 	INT_SYS_ClearPending(PORTA_IRQn);
 	INT_SYS_EnableIRQ(PORTA_IRQn);
 }

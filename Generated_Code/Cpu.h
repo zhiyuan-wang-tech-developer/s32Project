@@ -7,7 +7,7 @@
 **     Version     : Component 01.197, Driver 01.00, CPU db: 3.00.000
 **     Datasheet   : S32K14XRM Rev. 2, 02/2017
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-11-06, 13:12, # CodeGen: 65
+**     Date/Time   : 2018-11-12, 17:33, # CodeGen: 82
 **     Abstract    :
 **
 **     Settings    :
@@ -73,8 +73,8 @@
 /* Including needed modules to compile this module/procedure */
 #include "clockManager1.h"
 #include "pin_mux.h"
-#include "lpTmr1.h"
-#include "lpit1.h"
+#include "lpTmr0.h"
+#include "lpit0.h"
 #include "lpuart0.h"
 #include "dmaController1.h"
 #include "lpspi0_adc.h"

@@ -8,6 +8,7 @@
 #include "Cpu.h"
 #include "can_bus.h"
 #include "stdio.h"
+#include "system_config.h"
 
 #define CAN_MESSAGE_ID			0x555u
 #define CAN_RX_BUFFER_INDEX		0u
@@ -89,7 +90,7 @@ bool CAN_communication_init(void)
 	}
 
 	/* Set CAN Message Buffer Interrupt Priority */
-	INT_SYS_SetPriority(CAN0_ORed_0_15_MB_IRQn, 10);
+	INT_SYS_SetPriority(CAN0_ORed_0_15_MB_IRQn, INTERRUPT_PRIORITY_LEVEL_CAN_MSG_BUF);
 
 	/* Configure the interrupt callback */
 	can_status = CAN_InstallEventCallback(INST_CAN_PAL0, CAN_TX_RX_Callback, NULL);
@@ -154,7 +155,7 @@ void CAN_transceiver_run(void)
 			break;
 
 		case CAN_PROCESS_RX_MSG:
-			printf("RX: A CAN MSG\r\n");
+//			printf("RX: A CAN MSG\r\n");
 			can_transceiver_status = CAN_WAIT;
 			break;
 

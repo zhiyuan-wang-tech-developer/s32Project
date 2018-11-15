@@ -229,5 +229,19 @@
       <EmptySection_DummyValue />
     </Events>
   </Bean>
+  <Bean name="can_pal0" type="can_pal">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="can_pal0" />
+      <Device v="CAN0" />
+      <Component_version v="S32K144_SDK01" />
+    </Properties>
+    <Methods>
+      <EmptySection_DummyValue />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
 </PE_PROJECT_SETTINGS_DOCUMENTATION>
 

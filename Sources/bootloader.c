@@ -12,6 +12,9 @@
 #include "stdio.h"
 
 
+//#define AUTO_RESET_FROM_OLD_FIRMWARE_START_ADDRESS			1u
+
+
 /* Little-endianness to Big-endianness macro */
 /*
  * After you read a word (32-bits) from flash,
@@ -722,7 +725,8 @@ void firmware_update(void)
 #endif
 
 #ifdef RUN_FROM_FLASH
-		auto_flash_reset();
+//		auto_flash_reset();
+		SystemSoftwareReset();
 #endif
 	}
 	else
@@ -831,7 +835,11 @@ void auto_ram_reset(void)
 void auto_flash_reset(void)
 {
 	// Local variables
+#ifdef AUTO_RESET_FROM_OLD_FIRMWARE_START_ADDRESS
+	uint32_t *startAddress = (uint32_t *) 0x0000C000u;
+#else
 	uint32_t *startAddress = (uint32_t *) 0x00000000u;
+#endif
 	uint32_t stackPointer = startAddress[0];
 	uint32_t programCounter = startAddress[1];
 

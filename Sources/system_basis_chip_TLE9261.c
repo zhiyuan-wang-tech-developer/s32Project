@@ -7,6 +7,7 @@
 
 #include "Cpu.h"
 #include "system_basis_chip_TLE9261.h"
+#include "system_config.h"
 
 /*
  * System Basis Chip Control Register Address (7 bits)
@@ -65,7 +66,7 @@ bool SBC_Init(void)
 		return false;
 	}
 
-	INT_SYS_SetPriority(LPSPI1_IRQn, 15u);
+	INT_SYS_SetPriority(LPSPI1_IRQn, INTERRUPT_PRIORITY_LEVEL_SPI_SBC);
 
 	/* Read the family and product identification register */
 	SBC_write_register.field.address = PRODUCT_INFO_REG_ADDRESS;

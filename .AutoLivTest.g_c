@@ -643,11 +643,11 @@
         <Line>dmaController1</Line>
         <Line>Events</Line>
         <Line>Flash</Line>
-        <Line>lpit1</Line>
+        <Line>lpit0</Line>
         <Line>lpspi0_adc</Line>
         <Line>lpspi1_can</Line>
         <Line>lpspi2_dac</Line>
-        <Line>lpTmr1</Line>
+        <Line>lpTmr0</Line>
         <Line>lpuart0</Line>
         <Line>pin_mux</Line>
       </GenAllModules>
@@ -655,8 +655,8 @@
       <GenBeanModules lines_count="11">
         <Line>clockManager1</Line>
         <Line>pin_mux</Line>
-        <Line>lpTmr1</Line>
-        <Line>lpit1</Line>
+        <Line>lpTmr0</Line>
+        <Line>lpit0</Line>
         <Line>lpuart0</Line>
         <Line>dmaController1</Line>
         <Line>lpspi0_adc</Line>
@@ -668,7 +668,7 @@
     </GenFiles>
     <SignalListFile />
     <DestinationCompiler>GNUC</DestinationCompiler>
-    <ProjectModificationStamp>38</ProjectModificationStamp>
+    <ProjectModificationStamp>39</ProjectModificationStamp>
   </Options>
   <CpuID_6>
     <Generated>true</Generated>
@@ -676,7 +676,7 @@
     <GenComponentVersion>01.197</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1298557336</HeaderAge>
+    <HeaderAge>1298959410</HeaderAge>
     <CodeAge>1298500029</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>3</GenNumMethods>
@@ -719,7 +719,7 @@
     <GenComponentVersion>01.197</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1298557336</HeaderAge>
+    <HeaderAge>1298959410</HeaderAge>
     <CodeAge>1298500029</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>3</GenNumMethods>
@@ -870,12 +870,12 @@
   </ComponentID_9>
   <ComponentID_14>
     <Generated>true</Generated>
-    <GenCompName>lpTmr1</GenCompName>
+    <GenCompName>lpTmr0</GenCompName>
     <GenComponentVersion>SDK_S32K14x_09</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1296782488</HeaderAge>
-    <CodeAge>1296849577</CodeAge>
+    <HeaderAge>1298959410</HeaderAge>
+    <CodeAge>1298959410</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>17</GenNumMethods>
     <LPTMR_DRV_InitConfigStruct>true</LPTMR_DRV_InitConfigStruct>
@@ -908,12 +908,12 @@
   </ComponentID_14>
   <ComponentID_15>
     <Generated>true</Generated>
-    <GenCompName>lpit1</GenCompName>
+    <GenCompName>lpit0</GenCompName>
     <GenComponentVersion>SDK_S32K14x_09</GenComponentVersion>
     <GenDriverVersion>01.00</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1296730651</HeaderAge>
-    <CodeAge>1296790229</CodeAge>
+    <HeaderAge>1298959410</HeaderAge>
+    <CodeAge>1298959410</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>15</GenNumMethods>
     <LPIT_DRV_Init>true</LPIT_DRV_Init>
