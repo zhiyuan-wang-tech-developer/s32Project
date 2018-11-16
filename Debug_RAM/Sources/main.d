@@ -50,8 +50,8 @@ Sources/main.o: ../Sources/main.c \
  D:/AllRound/Project/AutoLivTest/Generated_Code/Cpu.h \
  D:/AllRound/Project/AutoLivTest/Generated_Code/pin_mux.h \
  C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/pins_driver.h \
- D:/AllRound/Project/AutoLivTest/Generated_Code/lpTmr1.h \
- D:/AllRound/Project/AutoLivTest/Generated_Code/lpit1.h \
+ D:/AllRound/Project/AutoLivTest/Generated_Code/lpTmr0.h \
+ D:/AllRound/Project/AutoLivTest/Generated_Code/lpit0.h \
  D:/AllRound/Project/AutoLivTest/Generated_Code/lpuart0.h \
  D:/AllRound/Project/AutoLivTest/Generated_Code/dmaController1.h \
  D:/AllRound/Project/AutoLivTest/Generated_Code/lpspi0_adc.h \
@@ -77,7 +77,8 @@ Sources/main.o: ../Sources/main.c \
  D:/AllRound/Project/AutoLivTest/include/can_bus.h \
  D:/AllRound/Project/AutoLivTest/include/system_basis_chip_TLE9261.h \
  D:/AllRound/Project/AutoLivTest/include/pc_communication.h \
- D:/AllRound/Project/AutoLivTest/include/bootloader.h
+ D:/AllRound/Project/AutoLivTest/include/bootloader.h \
+ D:/AllRound/Project/AutoLivTest/include/system_config.h
 
 C:/NXP/S32DS_ARM_v2018.R1/S32DS/arm_ewl2/EWL_C/include/lib_c99.prefix:
 
@@ -181,9 +182,9 @@ D:/AllRound/Project/AutoLivTest/Generated_Code/pin_mux.h:
 
 C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/pins_driver.h:
 
-D:/AllRound/Project/AutoLivTest/Generated_Code/lpTmr1.h:
+D:/AllRound/Project/AutoLivTest/Generated_Code/lpTmr0.h:
 
-D:/AllRound/Project/AutoLivTest/Generated_Code/lpit1.h:
+D:/AllRound/Project/AutoLivTest/Generated_Code/lpit0.h:
 
 D:/AllRound/Project/AutoLivTest/Generated_Code/lpuart0.h:
 
@@ -236,3 +237,5 @@ D:/AllRound/Project/AutoLivTest/include/system_basis_chip_TLE9261.h:
 D:/AllRound/Project/AutoLivTest/include/pc_communication.h:
 
 D:/AllRound/Project/AutoLivTest/include/bootloader.h:
+
+D:/AllRound/Project/AutoLivTest/include/system_config.h:

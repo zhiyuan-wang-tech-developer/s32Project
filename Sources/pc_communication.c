@@ -77,6 +77,7 @@ bool FifoRingBuffer_PutByte(uint8_t InputByte);
 bool FifoRingBuffer_GetByte(uint8_t * pOutputByte);
 void handleRxByte(void *driverState, uart_event_t event, void *userData);
 
+
 /*
  * Initialize the PC to s32k144 MCU UART communication
  */
@@ -155,6 +156,7 @@ void PC2UART_receiver_run(void)
 				// Find rx data packet header
 				if( rxByte == DataPacketHeader )
 				{
+					isFirmwareDownloading = true;
 					// The data packet header is found. Next to check data packet type
 					PC2UART_ReceiverStatus = CHECK_RX_DATA_PACKET_TYPE;
 					// Clear the rx data packet.
@@ -442,7 +444,7 @@ void PC2UART_receiver_run(void)
 
 #ifdef DEBUG_FROM_RAM
 			printf("System Reset...\r\n");
-//			auto_ram_reset();
+			auto_ram_reset();
 #endif
 
 #ifdef RUN_FROM_FLASH
@@ -470,11 +472,11 @@ bool isDownloadTimeout( void )
 	{
 		// If the firmware is being downloaded, the 1 second timer interrupt is disabled.
 		// Check the timer interrupt flag to see if 1s timing is up.
-		if( LPIT_DRV_GetInterruptFlagTimerChannels(INST_LPIT0, 0x01u) )
-		{
-			LPIT_DRV_ClearInterruptFlagTimerChannels(INST_LPIT0, 0x01u);
-			countDownloadTime++;
-		}
+//		if( LPIT_DRV_GetInterruptFlagTimerChannels(INST_LPIT0, 0x01u) )
+//		{
+//			LPIT_DRV_ClearInterruptFlagTimerChannels(INST_LPIT0, 0x01u);
+//			countDownloadTime++;
+//		}
 
 		if( countDownloadTime > MAX_DOWNLOAD_TIME )
 		{

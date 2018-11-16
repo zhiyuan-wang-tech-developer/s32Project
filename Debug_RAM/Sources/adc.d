@@ -51,8 +51,8 @@ Sources/adc.o: ../Sources/adc.c \
  D:/AllRound/Project/AutoLivTest/Generated_Code/Cpu.h \
  D:/AllRound/Project/AutoLivTest/Generated_Code/pin_mux.h \
  C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/pins_driver.h \
- D:/AllRound/Project/AutoLivTest/Generated_Code/lpTmr1.h \
- D:/AllRound/Project/AutoLivTest/Generated_Code/lpit1.h \
+ D:/AllRound/Project/AutoLivTest/Generated_Code/lpTmr0.h \
+ D:/AllRound/Project/AutoLivTest/Generated_Code/lpit0.h \
  D:/AllRound/Project/AutoLivTest/Generated_Code/lpuart0.h \
  D:/AllRound/Project/AutoLivTest/Generated_Code/dmaController1.h \
  D:/AllRound/Project/AutoLivTest/Generated_Code/lpspi0_adc.h \
@@ -62,7 +62,8 @@ Sources/adc.o: ../Sources/adc.c \
  D:/AllRound/Project/AutoLivTest/Generated_Code/can_pal0.h \
  C:/NXP/S32DS_ARM_v2018.R1/S32DS/arm_ewl2/EWL_C/include/string.h \
  C:/NXP/S32DS_ARM_v2018.R1/S32DS/arm_ewl2/EWL_C/include/cstring \
- C:/NXP/S32DS_ARM_v2018.R1/S32DS/arm_ewl2/EWL_C/include/string_api.h
+ C:/NXP/S32DS_ARM_v2018.R1/S32DS/arm_ewl2/EWL_C/include/string_api.h \
+ D:/AllRound/Project/AutoLivTest/include/system_config.h
 
 C:/NXP/S32DS_ARM_v2018.R1/S32DS/arm_ewl2/EWL_C/include/lib_c99.prefix:
 
@@ -168,9 +169,9 @@ D:/AllRound/Project/AutoLivTest/Generated_Code/pin_mux.h:
 
 C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/pins_driver.h:
 
-D:/AllRound/Project/AutoLivTest/Generated_Code/lpTmr1.h:
+D:/AllRound/Project/AutoLivTest/Generated_Code/lpTmr0.h:
 
-D:/AllRound/Project/AutoLivTest/Generated_Code/lpit1.h:
+D:/AllRound/Project/AutoLivTest/Generated_Code/lpit0.h:
 
 D:/AllRound/Project/AutoLivTest/Generated_Code/lpuart0.h:
 
@@ -191,3 +192,5 @@ C:/NXP/S32DS_ARM_v2018.R1/S32DS/arm_ewl2/EWL_C/include/string.h:
 C:/NXP/S32DS_ARM_v2018.R1/S32DS/arm_ewl2/EWL_C/include/cstring:
 
 C:/NXP/S32DS_ARM_v2018.R1/S32DS/arm_ewl2/EWL_C/include/string_api.h:
+
+D:/AllRound/Project/AutoLivTest/include/system_config.h:

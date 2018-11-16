@@ -12,7 +12,7 @@
 #include "stdio.h"
 
 
-//#define AUTO_RESET_FROM_OLD_FIRMWARE_START_ADDRESS			1u
+#define AUTO_RESET_FROM_OLD_FIRMWARE_START_ADDRESS			1u
 
 
 /* Little-endianness to Big-endianness macro */
@@ -262,11 +262,11 @@ bool flash_writeBytes(uint32_t writeStartAddress, uint32_t writeByteNum, uint8_t
 		return false;
 	}
 	// Check data written to the flash
-	flash_status = FLASH_DRV_ProgramCheck(&flashSSDConfig, writeStartAddress, writeByteNum, pBufferToWrite, &failAddress, 0x01u);
-	if( flash_status != STATUS_SUCCESS )
-	{
-		return false;
-	}
+//	flash_status = FLASH_DRV_ProgramCheck(&flashSSDConfig, writeStartAddress, writeByteNum, pBufferToWrite, &failAddress, 0x01u);
+//	if( flash_status != STATUS_SUCCESS )
+//	{
+//		return false;
+//	}
 	return true;
 }
 

@@ -11,8 +11,8 @@ C_SRCS_QUOTED += \
 "../Generated_Code/can_pal0.c" \
 "../Generated_Code/clockManager1.c" \
 "../Generated_Code/dmaController1.c" \
-"../Generated_Code/lpTmr1.c" \
-"../Generated_Code/lpit1.c" \
+"../Generated_Code/lpTmr0.c" \
+"../Generated_Code/lpit0.c" \
 "../Generated_Code/lpspi0_adc.c" \
 "../Generated_Code/lpspi1_can.c" \
 "../Generated_Code/lpspi2_dac.c" \
@@ -25,8 +25,8 @@ C_SRCS += \
 ../Generated_Code/can_pal0.c \
 ../Generated_Code/clockManager1.c \
 ../Generated_Code/dmaController1.c \
-../Generated_Code/lpTmr1.c \
-../Generated_Code/lpit1.c \
+../Generated_Code/lpTmr0.c \
+../Generated_Code/lpit0.c \
 ../Generated_Code/lpspi0_adc.c \
 ../Generated_Code/lpspi1_can.c \
 ../Generated_Code/lpspi2_dac.c \
@@ -39,8 +39,8 @@ C_DEPS_QUOTED += \
 "./Generated_Code/can_pal0.d" \
 "./Generated_Code/clockManager1.d" \
 "./Generated_Code/dmaController1.d" \
-"./Generated_Code/lpTmr1.d" \
-"./Generated_Code/lpit1.d" \
+"./Generated_Code/lpTmr0.d" \
+"./Generated_Code/lpit0.d" \
 "./Generated_Code/lpspi0_adc.d" \
 "./Generated_Code/lpspi1_can.d" \
 "./Generated_Code/lpspi2_dac.d" \
@@ -53,8 +53,8 @@ OBJS_QUOTED += \
 "./Generated_Code/can_pal0.o" \
 "./Generated_Code/clockManager1.o" \
 "./Generated_Code/dmaController1.o" \
-"./Generated_Code/lpTmr1.o" \
-"./Generated_Code/lpit1.o" \
+"./Generated_Code/lpTmr0.o" \
+"./Generated_Code/lpit0.o" \
 "./Generated_Code/lpspi0_adc.o" \
 "./Generated_Code/lpspi1_can.o" \
 "./Generated_Code/lpspi2_dac.o" \
@@ -67,8 +67,8 @@ C_DEPS += \
 ./Generated_Code/can_pal0.d \
 ./Generated_Code/clockManager1.d \
 ./Generated_Code/dmaController1.d \
-./Generated_Code/lpTmr1.d \
-./Generated_Code/lpit1.d \
+./Generated_Code/lpTmr0.d \
+./Generated_Code/lpit0.d \
 ./Generated_Code/lpspi0_adc.d \
 ./Generated_Code/lpspi1_can.d \
 ./Generated_Code/lpspi2_dac.d \
@@ -81,8 +81,8 @@ OBJS_OS_FORMAT += \
 ./Generated_Code/can_pal0.o \
 ./Generated_Code/clockManager1.o \
 ./Generated_Code/dmaController1.o \
-./Generated_Code/lpTmr1.o \
-./Generated_Code/lpit1.o \
+./Generated_Code/lpTmr0.o \
+./Generated_Code/lpit0.o \
 ./Generated_Code/lpspi0_adc.o \
 ./Generated_Code/lpspi1_can.o \
 ./Generated_Code/lpspi2_dac.o \
@@ -95,8 +95,8 @@ OBJS += \
 ./Generated_Code/can_pal0.o \
 ./Generated_Code/clockManager1.o \
 ./Generated_Code/dmaController1.o \
-./Generated_Code/lpTmr1.o \
-./Generated_Code/lpit1.o \
+./Generated_Code/lpTmr0.o \
+./Generated_Code/lpit0.o \
 ./Generated_Code/lpspi0_adc.o \
 ./Generated_Code/lpspi1_can.o \
 ./Generated_Code/lpspi2_dac.o \
@@ -145,19 +145,19 @@ Generated_Code/dmaController1.o: ../Generated_Code/dmaController1.c
 	@echo 'Finished building: $<'
 	@echo ' '
 
-Generated_Code/lpTmr1.o: ../Generated_Code/lpTmr1.c
+Generated_Code/lpTmr0.o: ../Generated_Code/lpTmr0.c
 	@echo 'Building file: $<'
 	@echo 'Executing target #6 $<'
 	@echo 'Invoking: Standard S32DS C Compiler'
-	arm-none-eabi-gcc "@Generated_Code/lpTmr1.args" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "Generated_Code/lpTmr1.o" "$<"
+	arm-none-eabi-gcc "@Generated_Code/lpTmr0.args" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "Generated_Code/lpTmr0.o" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
-Generated_Code/lpit1.o: ../Generated_Code/lpit1.c
+Generated_Code/lpit0.o: ../Generated_Code/lpit0.c
 	@echo 'Building file: $<'
 	@echo 'Executing target #7 $<'
 	@echo 'Invoking: Standard S32DS C Compiler'
-	arm-none-eabi-gcc "@Generated_Code/lpit1.args" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "Generated_Code/lpit1.o" "$<"
+	arm-none-eabi-gcc "@Generated_Code/lpit0.args" -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "Generated_Code/lpit0.o" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

@@ -63,8 +63,8 @@ Sources/systemRunFsm.o: ../Sources/systemRunFsm.c \
  D:/AllRound/Project/AutoLivTest/Generated_Code/Cpu.h \
  D:/AllRound/Project/AutoLivTest/Generated_Code/pin_mux.h \
  C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/pins_driver.h \
- D:/AllRound/Project/AutoLivTest/Generated_Code/lpTmr1.h \
- D:/AllRound/Project/AutoLivTest/Generated_Code/lpit1.h \
+ D:/AllRound/Project/AutoLivTest/Generated_Code/lpTmr0.h \
+ D:/AllRound/Project/AutoLivTest/Generated_Code/lpit0.h \
  D:/AllRound/Project/AutoLivTest/Generated_Code/lpuart0.h \
  D:/AllRound/Project/AutoLivTest/Generated_Code/dmaController1.h \
  D:/AllRound/Project/AutoLivTest/Generated_Code/lpspi0_adc.h \
@@ -203,9 +203,9 @@ D:/AllRound/Project/AutoLivTest/Generated_Code/pin_mux.h:
 
 C:/NXP/S32DS_ARM_v2018.R1/S32DS/S32SDK_S32K14x_EAR_0.8.6/platform/drivers/inc/pins_driver.h:
 
-D:/AllRound/Project/AutoLivTest/Generated_Code/lpTmr1.h:
+D:/AllRound/Project/AutoLivTest/Generated_Code/lpTmr0.h:
 
-D:/AllRound/Project/AutoLivTest/Generated_Code/lpit1.h:
+D:/AllRound/Project/AutoLivTest/Generated_Code/lpit0.h:
 
 D:/AllRound/Project/AutoLivTest/Generated_Code/lpuart0.h:
 

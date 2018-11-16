@@ -116,6 +116,7 @@ int main(void)
     INT_SYS_EnableIRQGlobal();
 
     flash_init();
+
     PC2UART_communication_init();
 
     /* LPSPI0 Initialization */
@@ -157,7 +158,7 @@ int main(void)
 	    */
 	   if( !isFirmwareDownloading )
 	   {
-		   timer_1sec_interrupt_on();
+//		   timer_1sec_interrupt_on();
 		   timer_uart_tx_start();
 		   ADC_data_ready_interrupt_on();
 		   CAN_interrupt_on();
@@ -168,7 +169,8 @@ int main(void)
 	   else
 	   {
 		   // The firmware is being downloaded
-		   timer_1sec_interrupt_off();
+//		   timer_1sec_interrupt_off();
+		   timer_1sec_stop();
 		   timer_uart_tx_stop();
 		   ADC_data_ready_interrupt_off();
 		   CAN_interrupt_off();
@@ -399,7 +401,7 @@ void LPIT0_Ch0_IRQHandler(void)
 		}
 
 		// For test version 1
-		LPUART_DRV_SendData(INST_LPUART0, testV1, sizeof(testV1));
+//		LPUART_DRV_SendData(INST_LPUART0, testV1, sizeof(testV1));
 		// For test version 2
 //		LPUART_DRV_SendData(INST_LPUART0, testV2, sizeof(testV2));
 
@@ -439,7 +441,7 @@ void LPTMR0_IRQHandler(void)
 		// The state machine now can not access the uart tx buffer
 
 //		LPUART_DRV_SendDataPolling(INST_LPUART0, uartTxBuffer, sizeof(uartTxBuffer));
-//		LPUART_DRV_SendDataBlocking(INST_LPUART0, uartTxBuffer, sizeof(uartTxBuffer), 10);
+		LPUART_DRV_SendDataBlocking(INST_LPUART0, uartTxBuffer, sizeof(uartTxBuffer), 10);
 
 		uart_tx_buffer_mutex = false;
 //		PINS_DRV_TogglePins(PTD, 1<<6); 	// used for waveform observation
@@ -451,7 +453,7 @@ void LPTMR0_IRQHandler(void)
 
 		// Here, you can send the uart data array directly and safely
 //		LPUART_DRV_SendDataPolling(INST_LPUART0, &(uart_data.array[0]), sizeof(uart_data.array));
-//		LPUART_DRV_SendDataBlocking(INST_LPUART0, &(uart_data.array[0]), sizeof(uart_data.array), 10);
+		LPUART_DRV_SendDataBlocking(INST_LPUART0, &(uart_data.array[0]), sizeof(uart_data.array), 10);
 
 //		PINS_DRV_TogglePins(PTD, 1<<5);
 	}
