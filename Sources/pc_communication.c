@@ -61,6 +61,8 @@ const uint8_t DataPacketHeader = 0x55u;
 const uint8_t DataPacketType_PutData = 0x0Bu;
 const uint8_t DataPacketSize = 69u; // 0x45u  The
 
+extern void timer_1sec_stop(void);
+
 // Function declaration for internal use
 bool isDownloadTimeout( void );
 bool isRxDataPacketCorrect( DATA_PACKET_t * pDataPacket );
@@ -76,7 +78,6 @@ bool FifoRingBuffer_IsFull(void);
 bool FifoRingBuffer_PutByte(uint8_t InputByte);
 bool FifoRingBuffer_GetByte(uint8_t * pOutputByte);
 void handleRxByte(void *driverState, uart_event_t event, void *userData);
-
 
 /*
  * Initialize the PC to s32k144 MCU UART communication
@@ -156,14 +157,25 @@ void PC2UART_receiver_run(void)
 				// Find rx data packet header
 				if( rxByte == DataPacketHeader )
 				{
-					isFirmwareDownloading = true;
 					// The data packet header is found. Next to check data packet type
 					PC2UART_ReceiverStatus = CHECK_RX_DATA_PACKET_TYPE;
 					// Clear the rx data packet.
 					memset(rx_data_packet.buffer, 0u, sizeof(rx_data_packet.buffer));
 					rx_data_packet.item.header = rxByte;
+
 					// Turn LED on to indicate the firmware download in progress.
 					LED_ON;
+
+					/*
+					 * Herein, we set the firmware downloading flag earlier once a header is received,
+					 * so that the PC updater will receive much less useless AD sample data packets.
+					 */
+					// Set the flag to indicate that the firmware is being downloaded.
+					if( isFirmwareDownloading == false )
+					{
+						isFirmwareDownloading = true;
+						countDownloadTime = 0;
+					}
 				}
 				else
 				{
@@ -245,11 +257,11 @@ void PC2UART_receiver_run(void)
 					PC2UART_ReceiverStatus = EXTRACT_RX_DATA_PACKET;
 					rx_data_packet.item.command = rxByte;
 					// Set the flag to indicate that the firmware is being downloaded.
-					if( isFirmwareDownloading == false )
-					{
-						isFirmwareDownloading = true;
-						countDownloadTime = 0;
-					}
+//					if( isFirmwareDownloading == false )
+//					{
+//						isFirmwareDownloading = true;
+//						countDownloadTime = 0;
+//					}
 				}
 				else
 				{
@@ -441,6 +453,23 @@ void PC2UART_receiver_run(void)
 			PC2UART_ReceiverStatus = READY_FOR_DATA_RX;
 			// Turn off LED to indicate the end of the firmware downloading.
 			LED_OFF;
+			/*
+			 * If the timer is still running after the global interrupt is disabled,
+			 * the timer's interrupt flag may be set when time is up.
+			 * Once reset, global interrupt is enabled, the program will immediately
+			 * enter into LPIT0_Ch0_IRQHandler() and send uart data. But, at this time
+			 * the uart module has not yet been initialized, the MCU exception will occur.
+			 */
+			timer_1sec_stop();
+			/*
+			 * Must disable any possible interrupt herein!
+			 * For example:
+			 * If 1 second timing interrupt happened,  the LPIT0_Ch0_IRQHandler() will be called. Then,
+			 * the uart sending data will be performed while the uart module has been uninitialized,
+			 * the MCU will be put into exception.
+			 * Therefore, you must disable all possible interrupts here.
+			 */
+			INT_SYS_DisableIRQGlobal();
 
 #ifdef DEBUG_FROM_RAM
 			printf("System Reset...\r\n");

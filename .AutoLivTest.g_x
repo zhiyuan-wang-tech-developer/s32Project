@@ -94,15 +94,15 @@
       <File Name="SDK/platform/drivers/src/flexcan/flexcan_hw_access.c" FileDate="2018-11-06, 13:12:48" FileAge="1541506368814" FileType="1048576" CompNumb="6" />
       <File Name="SDK/platform/drivers/src/lpspi/lpspi_hw_access.h" FileDate="2018-10-15, 15:53:23" FileAge="1539611603261" FileType="1048576" CompNumb="0" />
       <File Name="SDK/platform/drivers/inc/lpspi_shared_function.h" FileDate="2018-10-15, 15:53:23" FileAge="1539611603261" FileType="1048576" CompNumb="0" />
-      <File Name="SDK/platform/drivers/inc/edma_driver.h" FileDate="2018-10-11, 16:46:23" FileAge="1539269183898" FileType="1048576" CompNumb="29" />
-      <File Name="SDK/platform/drivers/src/clock/S32K1xx/pmc_hw_access.h" FileDate="2018-10-09, 15:31:11" FileAge="1539091871441" FileType="1048576" CompNumb="10" />
       <File Name="Generated_Code/lpuart0.c" FileDate="2018-10-17, 15:13:20" FileAge="1539782000115" FileType="45637" CompNumb="28" />
+      <File Name="SDK/platform/drivers/src/clock/S32K1xx/pmc_hw_access.h" FileDate="2018-10-09, 15:31:11" FileAge="1539091871441" FileType="1048576" CompNumb="10" />
+      <File Name="SDK/platform/drivers/inc/edma_driver.h" FileDate="2018-10-11, 16:46:23" FileAge="1539269183898" FileType="1048576" CompNumb="29" />
       <File Name="SDK/platform/devices/common/s32_core_cm4.h" FileDate="2018-10-09, 15:31:11" FileAge="1539091871472" FileType="1048576" CompNumb="6" />
       <File Name="SDK/platform/drivers/src/lpspi/lpspi_hw_access.c" FileDate="2018-10-15, 15:53:23" FileAge="1539611603245" FileType="1048576" CompNumb="0" />
       <File Name="SDK/platform/drivers/src/ftm/ftm_mc_driver.c" FileDate="1970-01-01, 00:59:59" FileAge="-1" FileType="1048576" />
       <File Name="SDK/platform/devices/S32K144/include/S32K144_features.h" FileDate="2018-10-09, 15:31:11" FileAge="1539091871488" FileType="1048576" CompNumb="6" />
-      <File Name="SDK/platform/drivers/src/lpspi/lpspi_shared_function.c" FileDate="2018-10-15, 15:53:23" FileAge="1539611603230" FileType="1048576" CompNumb="0" />
       <File Name="SDK/platform/pal/can/inc/can_pal_mapping.h" FileDate="2018-11-06, 13:12:48" FileAge="1541506368783" FileType="1048576" CompNumb="0" />
+      <File Name="SDK/platform/drivers/src/lpspi/lpspi_shared_function.c" FileDate="2018-10-15, 15:53:23" FileAge="1539611603230" FileType="1048576" CompNumb="0" />
       <File Name="SDK/rtos/osif/osif_baremetal.c" FileDate="2018-10-11, 16:46:23" FileAge="1539269183914" FileType="1048576" CompNumb="31" />
       <File Name="SDK/platform/drivers/src/lpuart/lpuart_irq.h" FileDate="2018-10-11, 16:46:23" FileAge="1539269183929" FileType="1048576" CompNumb="28" />
       <File Name="SDK/platform/drivers/src/ftm/ftm_common.c" FileDate="1970-01-01, 00:59:59" FileAge="-1" FileType="1048576" />
@@ -113,18 +113,18 @@
       <File Name="SDK/platform/drivers/inc/lptmr_driver.h" FileDate="2018-10-10, 15:17:33" FileAge="1539177453421" FileType="1048576" CompNumb="14" />
       <File Name="SDK/platform/drivers/src/lptmr/lptmr_hw_access.c" FileDate="2018-10-10, 15:17:33" FileAge="1539177453405" FileType="1048576" CompNumb="14" />
       <File Name="SDK/platform/drivers/inc/flash_driver.h" FileDate="2018-11-05, 17:13:58" FileAge="1541434438481" FileType="1048576" CompNumb="34" />
-      <File Name="SDK/platform/drivers/inc/lpit_driver.h" FileDate="2018-10-10, 15:17:33" FileAge="1539177453452" FileType="1048576" CompNumb="15" />
       <File Name="Generated_Code/can_pal0.h" FileDate="2018-11-06, 13:12:48" FileAge="1541506368877" FileType="45637" CompNumb="38" />
+      <File Name="SDK/platform/drivers/inc/lpit_driver.h" FileDate="2018-10-10, 15:17:33" FileAge="1539177453452" FileType="1048576" CompNumb="15" />
       <File Name="SDK/platform/drivers/src/lpspi/lpspi_irq.c" FileDate="2018-10-15, 15:53:23" FileAge="1539611603214" FileType="1048576" CompNumb="0" />
       <File Name="Generated_Code/clockManager1.h" FileDate="2018-11-05, 17:13:58" FileAge="1541434438778" FileType="45637" CompNumb="10" />
       <File Name="Generated_Code/can_pal0.c" FileDate="2018-11-08, 17:10:02" FileAge="1541693402536" FileType="45637" CompNumb="38" />
       <File Name="SDK/platform/devices/devassert.h" FileDate="2018-10-09, 15:31:11" FileAge="1539091871472" FileType="1048576" CompNumb="6" />
-      <File Name="Generated_Code/clockManager1.c" FileDate="2018-11-05, 17:13:58" FileAge="1541434438793" FileType="45637" CompNumb="10" />
       <File Name="SDK/platform/devices/device_registers.h" FileDate="2018-10-09, 15:31:11" FileAge="1539091871472" FileType="1048576" CompNumb="6" />
-      <File Name="Sources/main.c" FileDate="2018-11-16, 11:20:46" FileAge="1542363646087" FileType="128" />
+      <File Name="Generated_Code/clockManager1.c" FileDate="2018-11-05, 17:13:58" FileAge="1541434438793" FileType="45637" CompNumb="10" />
+      <File Name="Sources/main.c" FileDate="2018-11-16, 17:38:39" FileAge="1542386319421" FileType="128" />
       <File Name="Generated_Code/pin_mux.h" FileDate="2018-11-05, 17:13:58" FileAge="1541434438762" FileType="45637" CompNumb="9" />
       <File Name="Generated_Code/pin_mux.c" FileDate="2018-11-05, 17:13:58" FileAge="1541434438793" FileType="45637" CompNumb="9" />
     </GeneratedByPE>
   </GeneratedFilesList>
-  <CodeGenReference>94</CodeGenReference>
+  <CodeGenReference>96</CodeGenReference>
 </CodeGenerationInfo>
